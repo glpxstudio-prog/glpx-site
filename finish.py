@@ -38,8 +38,8 @@ def finish(path, url=None):
         head_add += f'<link rel="canonical" href="{url}">\n'
     if "og:image" not in html:
         main = html.split("<main>", 1)[-1]
-        m = re.search(r'<img src="(assets/img/[^"]+)"', main)
-        img = SITE + (m.group(1) if m else "assets/img/br-director.jpg")
+        m = re.search(r'<img src="(assets/img/(?!logo)[^"]+)"', main.split("<footer", 1)[0])
+        img = SITE + (m.group(1) if m else "assets/img/og-home.jpg")
         if name == "index.html" and url == SITE:
             img = SITE + "assets/img/og-home.jpg"  # 1200x630 share card
             head_add += '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
