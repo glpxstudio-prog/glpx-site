@@ -368,3 +368,4 @@ page("404.html", "Page not found · GLPX Studio", "This page moved or doesn't ex
 import book  # Book a Call page + thank-you page
 import finish  # structured data, social previews, lazy images
 import blog  # journal posts, legal pages, redirects from old Pixpa addresses
+import links  # Instagram link-in-bio page at /links
