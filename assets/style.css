@@ -408,3 +408,9 @@ p { margin: 0; }
   .hero-trio::after { background: linear-gradient(0deg, var(--red) 0%, rgba(229, 57, 53, 0) 30%); }
   .hero-trio span { left: 6px; bottom: 8px; font-size: 9px; padding: 5px 6px; }
 }
+
+/* Mobile menu: links inside the dropdown must stay visible (fix) */
+@media (max-width: 980px) {
+  .nav .menu-panel a:not(.btn) { display: block; color: var(--cream); }
+  .nav .menu-panel a[aria-current="page"] { color: var(--red); }
+}
