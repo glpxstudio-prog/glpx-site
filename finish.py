@@ -4,7 +4,7 @@ import json, re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 SITE = "https://www.glpxstudio.com/"
-VERSION = "20261005b"
+VERSION = "20261005c"
 SKIP = {"index-v1.html", "index-v2.html", "artifact-index.html"}
 
 BUSINESS = {
@@ -40,6 +40,10 @@ def finish(path, url=None):
         main = html.split("<main>", 1)[-1]
         m = re.search(r'<img src="(assets/img/[^"]+)"', main)
         img = SITE + (m.group(1) if m else "assets/img/br-director.jpg")
+        if name == "index.html" and url == SITE:
+            img = SITE + "assets/img/og-home.jpg"  # 1200x630 share card
+            head_add += '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
+        head_add += f'<meta property="og:image:alt" content="GLPX Studio, Orlando branding and headshot photography">\n'
         title = re.search(r"<title>(.*?)</title>", html, re.S).group(1)
         desc_m = re.search(r'<meta name="description" content="([^"]*)"', html)
         if 'property="og:title"' not in html:
