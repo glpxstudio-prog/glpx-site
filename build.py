@@ -39,13 +39,13 @@ FOOTER = f'''<footer class="site-foot">
     <div><img src="assets/img/logo-cream.png" alt="GLPX Studio"></div>
     <div>
       <h4>Explore</h4>
-      <ul>{"".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("index.html", "Home")] + NAV + [("corporate-headshots-orlando.html", "Team headshots"), ("commercial-photography-orlando.html", "Commercial"), ("areas.html", "Areas we serve"), ("blog/index.html", "Journal")])}</ul>
+      <ul>{"".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("index.html", "Home")] + NAV + [("corporate-headshots-orlando.html", "Team headshots"), ("commercial-photography-orlando.html", "Commercial"), ("videography-orlando.html", "Video"), ("areas.html", "Areas we serve"), ("blog/index.html", "Journal")])}</ul>
     </div>
     <div>
       <h4>Contact</h4>
       <ul><li><a href="tel:+14075347581">Call (407) 534-7581</a></li><li><a href="sms:+14075347581">Text (407) 534-7581</a></li><li><a href="mailto:glpxstudio@gmail.com">glpxstudio@gmail.com</a></li><li><a href="https://www.instagram.com/glpxstudio/" target="_blank" rel="noopener">Instagram @glpxstudio</a></li><li>Orlando, FL</li></ul>
     </div>
-    <p class="fine">© 2026 GLPX Studio · Branding, headshot &amp; editorial photography in Orlando, FL · <a href="terms-and-conditions/index.html">Terms</a> · <a href="privacy-policy/index.html">Privacy</a></p>
+    <p class="fine">© 2026 GLPX Studio · Branding, headshot &amp; editorial photography and video in Orlando, FL · <a href="terms-and-conditions/index.html">Terms</a> · <a href="privacy-policy/index.html">Privacy</a></p>
   </div>
 </footer>'''
 

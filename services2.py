@@ -261,8 +261,131 @@ page("corporate-headshots-orlando.html", "Corporate &amp; Team Headshots in Orla
      "Corporate, team and LinkedIn headshots in Orlando. On-site at your office or in a studio, with one consistent look for the whole team. Custom quotes within 24 hours.",
      corporate)
 
+# ------------------------------------------------------------------ VIDEO
+IG = "https://www.instagram.com/glpxstudio/"
+video = f'''  <section class="page-hero page-hero--red">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Video · Orlando, FL</p>
+        <h1>Video that <em>keeps up.</em></h1>
+        <p class="lede">Phone-shot social content, brand videos and event videography for Orlando businesses. Shot on its own or alongside your photos, in English or Spanish.</p>
+        <div class="hero-actions">
+          <a class="btn btn--solid" href="{BOOK}" target="_blank" rel="noopener">Book a free strategy call</a>
+          <a class="btn btn--ghost" href="{IG}" target="_blank" rel="noopener">See video on Instagram</a>
+        </div>
+      </div>
+      <figure class="print">
+        <img src="assets/img/ab-bts-team.jpg" alt="Black and white behind the scenes shot of Gerson and artists on set">
+        <figcaption><span>On set · Video</span><span>Fr. 01</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="credits"><div class="wrap">
+    <span><b>Reels</b> &amp; TikToks</span><span><b>Brand</b> videos</span><span><b>Event</b> recaps</span><span>English &amp; <b>Español</b></span>
+  </div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What I film</p>
+        <h2>Three kinds of video. One goal: get you seen.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Social content</h3><p>Reels, TikToks and Stories shot on phone for a native, organic look. Vertical, edited and ready to post, so your feed stays active without you filming yourself.</p></div>
+        <div class="step"><h3>Brand &amp; business videos</h3><p>Your about us video, service explainers, founder story and client testimonials. The videos that live on your website and close the sale.</p></div>
+        <div class="step"><h3>Event videography</h3><p>Conference and company event recaps, speaker clips and highlight reels you can post the same week.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Photo + video</p>
+        <h2>One shoot. Both covered.</h2>
+        <p>Most businesses need photos and video from the same day. Book them together and you get matching visuals for your website, ads and social, with one plan, one crew and one schedule.</p>
+        <div><a class="btn btn--red" href="{BOOK}" target="_blank" rel="noopener">Plan a photo + video shoot</a></div>
+      </div>
+      <div>
+        <ul class="ticks">
+          <li><span>Social content</span><span>Shot on phone · vertical</span></li>
+          <li><span>Brand &amp; event video</span><span>Professional camera gear</span></li>
+          <li><span>Photos</span><span>Same day, same look</span></li>
+          <li><span>Formats</span><span>9:16 · 1:1 · 16:9</span></li>
+          <li><span>Language</span><span>English &amp; Español</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">How a video shoot runs</p><h2>Hooks first. Camera second.</h2></div>
+      <div class="steps">
+        <div class="step"><h3>Strategy call</h3><p>We talk goals, platforms and where the videos will run. You get a custom quote within 24 hours.</p></div>
+        <div class="step"><h3>Plan the content</h3><p>Hooks, talking points and a shot list, so nothing on shoot day is improvised.</p></div>
+        <div class="step"><h3>Shoot day</h3><p>On location at your business, at your event or in an Orlando studio. I direct you on camera, so you don't need to be a natural.</p></div>
+        <div class="step"><h3>Edit &amp; deliver</h3><p>Edited videos sized for each platform, ready to post or hand to your team.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap cs-bts">
+      <img src="assets/img/bts.jpg" alt="Lighting setup on set before a shoot">
+      <div>
+        <p class="eyebrow" style="color: var(--red)">Latest work</p>
+        <h3>The newest videos live on Instagram.</h3>
+        <p>Reels and behind-the-scenes clips from recent shoots are posted on <a href="{IG}" target="_blank" rel="noopener" style="color:var(--red)">@glpxstudio</a>. Ask on your call and I will share examples that match your industry.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cream">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Pricing</p>
+        <h2>Quoted per project.</h2>
+        <p>Video depends on how many pieces you need, how long the shoot runs and how much editing goes into each one. Tell me on a free call and I will send a quote within 24 hours. A 50% deposit secures your date.</p>
+        <div><a class="btn btn--red" href="{BOOK}" target="_blank" rel="noopener">Get a quote</a></div>
+      </div>
+      <div>
+        <p class="eyebrow">Pairs well with</p>
+        <h2>Photos for the same campaign.</h2>
+        <p>Add <a href="branding.html">branding photos</a>, <a href="commercial-photography-orlando.html">commercial photos</a> or <a href="corporate-headshots-orlando.html">team headshots</a> to the same day.</p>
+      </div>
+    </div>
+  </section>
+
+{reviews_section(["johan", "gabriel"], "Clients on working with GLPX.")}
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Questions</p><h2>Before you book.</h2></div>
+      {faq([
+        ("Why shoot social content on a phone?", "Phone video looks native on Reels and TikTok, which usually means more views than polished ads. Brand and event videos are filmed with professional camera gear when the job calls for it."),
+        ("Do I need to be good on camera?", "No. I give you the lines, the hooks and direction between takes. Most people loosen up after the first few minutes."),
+        ("Can you film our event and take photos too?", "Yes. Event coverage can include photos, a recap video and short clips for social. See <a href='corporate-event-photography-orlando.html'>corporate event photography</a>."),
+        ("Do you post the videos for us?", "I deliver edited videos ready to post. Posting and account management stay with you or your team."),
+        ("Do you film in Spanish?", "Yes. Content can be filmed in English, Spanish or both, which helps when your customers are bilingual."),
+      ])}
+    </div>
+  </section>
+
+{closer("Let's get you <em>on camera.</em>", "Social content, brand videos and event coverage across Orlando.")}'''
+
+page("videography-orlando.html", "Videographer in Orlando, FL · Social, Brand &amp; Event Video · GLPX Studio",
+     "Orlando videographer for social media content, brand and business videos, and event recaps. Phone-shot Reels and TikToks, plus photo and video on the same day. Custom quotes.",
+     video)
+
 # ------------------------------------------------------------------ cross-links from existing pages
-NEW = ["commercial-photography-orlando.html", "corporate-headshots-orlando.html"]
+NEW = ["commercial-photography-orlando.html", "corporate-headshots-orlando.html", "videography-orlando.html"]
+
+cm = ROOT / "commercial-photography-orlando.html"
+t = cm.read_text()
+t = t.replace('<details><summary>Do you work in Spanish?</summary>',
+              '<details><summary>Do you shoot video too?</summary><p>Yes. Social content, brand videos and event recaps can be filmed on the same day as your photos. See <a href="videography-orlando.html">video</a>.</p></details><details><summary>Do you work in Spanish?</summary>', 1)
+cm.write_text(t)
 
 hs = ROOT / "headshots.html"
 t = hs.read_text()

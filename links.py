@@ -12,6 +12,7 @@ links = [
     ("Branding", "../branding.html", "Planned shoots for your brand"),
     ("Editorial &amp; Music", "../editorial.html", "Covers, press kits, beauty, fashion"),
     ("Corporate Events", "../corporate-event-photography-orlando.html", "English &amp; Español coverage"),
+    ("Video", "../videography-orlando.html", "Reels, brand videos, event recaps"),
     ("Client Gallery", "https://gallery.glpxstudio.com", "Already shot with me? Your photos are here"),
     ("Journal", "../blog/index.html", "Guides: what to wear, where to shoot"),
     ("About Gerson", "../about.html", "8+ years behind the camera"),

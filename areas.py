@@ -177,7 +177,7 @@ SERVICES = dict(
           <article class="price"><h3>Half Day</h3><ul><li>Up to 5 hours of coverage</li><li>Speakers, crowd, details and candids</li><li>Edits added per image</li></ul></article>
           <article class="price price--feature"><span class="tag">Full event</span><h3>Full Day</h3><ul><li>Up to 10 hours of coverage</li><li>Multiple rooms or locations</li><li>Travel within 1 hour included</li></ul></article>
         </div>
-        <p class="terms">Add on-site team headshots or BTS content · English &amp; Spanish coverage · 50% deposit secures your date</p>''',
+        <p class="terms">Add on-site team headshots or an <a href="videography-orlando.html" style="color:var(--red)">event recap video</a> · English &amp; Spanish coverage · 50% deposit secures your date</p>''',
         faqs=[("Can you take team headshots during the event?", "Yes. A simple headshot setup at your event lets attendees or staff get a professional photo between sessions."),
               ("Do you cover events in Spanish?", "Yes. I work in English and Spanish, which helps with bilingual teams and international guests.")]),
 )
