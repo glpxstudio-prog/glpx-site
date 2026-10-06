@@ -170,7 +170,7 @@ body = f'''  <section class="hero hero--photo v2-trio-hero v2-dark-hero">
       <h2 class="tall">Start with a (free) call</h2>
       <p style="color:#E3D7CB;max-width:44ch">Tell me what you're working on and where the photos need to show up. I'll take it from there.</p>
       <a class="pill pill--act" href="{BOOK}" target="_blank" rel="noopener">Book a free strategy call</a>
-      <div class="lines"><span>(407) 534-7581</span><span>glpxstudio@gmail.com</span><span>@glpxstudio</span></div>
+      <div class="lines"><a href="tel:+14075347581">Call (407) 534-7581</a><a href="sms:+14075347581">Text me</a><a href="mailto:glpxstudio@gmail.com">glpxstudio@gmail.com</a><a href="https://www.instagram.com/glpxstudio/" target="_blank" rel="noopener">@glpxstudio</a></div>
     </div>
   </section>'''
 

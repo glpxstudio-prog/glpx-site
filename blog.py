@@ -31,7 +31,7 @@ TOPIC = {  # where each post should send readers next
     "why-professional-photography-matters-for-your-brand": ("Branding", "branding.html"),
     "15-creative-poses-to-enhance-your-model-photography-portfolio": ("Editorial", "editorial.html"),
 }
-REL = re.compile(r'((?:href|src)=")(?!https?:|mailto:|tel:|#|/|data:)')
+REL = re.compile(r'((?:href|src)=")(?!https?:|mailto:|tel:|sms:|#|/|data:)')
 
 
 def read(slug):

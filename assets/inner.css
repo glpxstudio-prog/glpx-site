@@ -206,3 +206,19 @@
 .post-list { border-top: 0; }
 .post-row:first-child { border-top: 2px solid var(--night); }
 .post > h2:first-child { margin-top: 0; }
+
+/* ---------- Clickable contact lines ---------- */
+.contact-lines a, .v2-close .lines a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.45); padding-bottom: 2px; }
+.contact-lines a:hover, .v2-close .lines a:hover { border-bottom-color: currentColor; }
+
+/* ---------- Book a Call ---------- */
+.book-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(260px, .8fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+.cal-wrap { background: #fff; border: 1px solid #D8CCBF; padding: 8px; min-height: 720px; }
+.cal-wrap iframe { width: 100%; min-height: 860px; border: 0; overflow: hidden; display: block; }
+.inner .cal-fallback { font-size: 14px; padding: 10px 8px 4px; color: #6B5F56 !important; }
+.book-side { display: grid; gap: 20px; position: sticky; top: 96px; }
+.book-alt { display: grid; gap: 10px; padding-top: 12px; }
+.book-alt .btn { justify-content: center; color: var(--night); }
+.book-alt .btn:hover { background: var(--night); color: var(--bone); border-color: var(--night); }
+@media (max-width: 900px) { .book-grid { grid-template-columns: 1fr; } .book-side { position: static; } .cal-wrap iframe { min-height: 980px; } }
+@media (max-width: 760px) { .book-side, .book-alt { text-align: center; justify-items: center; } .book-alt .btn { width: 100%; max-width: 320px; } .inner .prep li { text-align: left; } }

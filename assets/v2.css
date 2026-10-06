@@ -254,3 +254,5 @@
   .v2 .nav .menu-panel a:not(.btn) { text-align: center; font-size: 13px; }
   .v2 .site-head .wrap { position: relative; }
 }
+.v2-close .lines a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.45); padding-bottom: 2px; }
+.v2-close .lines a:hover { border-bottom-color: currentColor; color: var(--act); }

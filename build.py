@@ -10,6 +10,7 @@ FONTS = ("https://fonts.googleapis.com/css2?family=Libre+Caslon+Condensed:ital,w
          "&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Archivo:wdth,wght@125,700&display=swap")
 NAV = [("branding.html", "Branding"), ("headshots.html", "Headshots"),
        ("editorial.html", "Editorial"), ("about.html", "About"), ("contact.html", "Contact"), ("client-gallery.html", "Client Gallery")]
+BOOK_PAGE = "book.html"
 
 
 def header(current):
@@ -27,7 +28,7 @@ def header(current):
 {menu}
         </div>
       </details>
-      <a class="btn btn--red" href="{BOOK}" target="_blank" rel="noopener">Book a call</a>
+      <a class="btn btn--red" href="book.html">Book a call</a>
     </nav>
   </div>
 </header>'''
@@ -42,7 +43,7 @@ FOOTER = f'''<footer class="site-foot">
     </div>
     <div>
       <h4>Contact</h4>
-      <ul><li><a href="tel:+14075347581">(407) 534-7581</a></li><li><a href="mailto:glpxstudio@gmail.com">glpxstudio@gmail.com</a></li><li><a href="https://www.instagram.com/glpxstudio/" target="_blank" rel="noopener">Instagram @glpxstudio</a></li><li>Orlando, FL</li></ul>
+      <ul><li><a href="tel:+14075347581">Call (407) 534-7581</a></li><li><a href="sms:+14075347581">Text (407) 534-7581</a></li><li><a href="mailto:glpxstudio@gmail.com">glpxstudio@gmail.com</a></li><li><a href="https://www.instagram.com/glpxstudio/" target="_blank" rel="noopener">Instagram @glpxstudio</a></li><li>Orlando, FL</li></ul>
     </div>
     <p class="fine">© 2026 GLPX Studio · Branding, headshot &amp; editorial photography in Orlando, FL · <a href="terms-and-conditions/index.html">Terms</a> · <a href="privacy-policy/index.html">Privacy</a></p>
   </div>
@@ -56,7 +57,7 @@ def closer(title_html, sub=""):
       <h2>{title_html}</h2>
       {f"<p class='lede'>{sub}</p>" if sub else ""}
       <div><a class="btn btn--solid" href="{BOOK}" target="_blank" rel="noopener">Book a free strategy call</a></div>
-      <div class="contact-lines"><span>(407) 534-7581</span><span>glpxstudio@gmail.com</span><span>@glpxstudio</span></div>
+      <div class="contact-lines"><a href="tel:+14075347581">Call (407) 534-7581</a><a href="sms:+14075347581">Text me</a><a href="mailto:glpxstudio@gmail.com">glpxstudio@gmail.com</a><a href="https://www.instagram.com/glpxstudio/" target="_blank" rel="noopener">@glpxstudio</a></div>
     </div>
   </section>'''
 
@@ -513,7 +514,8 @@ contact = f'''  <section class="page-hero page-hero--red">
         <p class="lede">The fastest way to start is a free strategy call. Pick a time that works and we'll talk through what you need.</p>
         <div class="hero-actions"><a class="btn btn--solid" href="{BOOK}" target="_blank" rel="noopener">Book a free strategy call</a></div>
         <dl class="contact-card">
-          <div><dt>Phone</dt><dd><a href="tel:+14075347581">(407) 534-7581</a></dd></div>
+          <div><dt>Call</dt><dd><a href="tel:+14075347581">(407) 534-7581</a></dd></div>
+          <div><dt>Text</dt><dd><a href="sms:+14075347581">Send a text</a></dd></div>
           <div><dt>Email</dt><dd><a href="mailto:glpxstudio@gmail.com">glpxstudio@gmail.com</a></dd></div>
           <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/glpxstudio/" target="_blank" rel="noopener">@glpxstudio</a></dd></div>
           <div><dt>Based in</dt><dd>Thornton Park, Orlando</dd></div>
@@ -581,7 +583,7 @@ gallery = f'''  <section class="page-hero page-hero--ink">
       <div class="steps" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))">
         <div class="step"><h3>Open your link</h3><p>Use the private link and password I sent you. It works on your phone or computer.</p></div>
         <div class="step"><h3>Heart your favorites</h3><p>Tap the heart on the images you love so I know which ones matter most to you.</p></div>
-        <div class="step"><h3>Download &amp; share</h3><p>Download web and print sizes. Tag @glpxstudio when you post.</p></div>
+        <div class="step"><h3>Download &amp; share</h3><p>Download web and print sizes. Tag <a href="https://www.instagram.com/glpxstudio/" target="_blank" rel="noopener">@glpxstudio</a> when you post.</p></div>
       </div>
     </div>
   </section>
@@ -590,7 +592,7 @@ gallery = f'''  <section class="page-hero page-hero--ink">
     <div class="wrap">
       <div class="section-head"><p class="eyebrow">Questions</p><h2>Gallery help.</h2></div>
       {faq([
-        ("I can't find my link or password.", "Check your email and texts for a message from GLPX Studio titled \u201cYour photos are ready.\u201d Still nothing? Call or text (407) 534-7581 and I'll resend it."),
+        ("I can't find my link or password.", "Check your email and texts for a message from GLPX Studio titled \u201cYour photos are ready.\u201d Still nothing? Call or text <a href='tel:+14075347581'>(407) 534-7581</a> and I'll resend it."),
         ("Can I get more edited images?", "Yes. Heart the extra images you want in your gallery and send me a message. I'll send a quote for the additional edits."),
         ("Can I order prints?", "Yes. Message me with the images you want and the sizes, and I'll send options."),
       ])}

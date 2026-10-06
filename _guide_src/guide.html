@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>GLPX Studio · Client Guide</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Condensed:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600&family=Archivo:wdth,wght@125,700&display=swap">
+<style>
+  @page { size: 8.5in 11in; margin: 0; }
+  :root { --red:#E53935; --night:#100D0C; --bone:#F3ECE3; --dust:#B9AA9C; --ink:#2A221E; --rule:#D8CCBF;
+          --tall:"Libre Caslon Condensed", Georgia, serif; --wide:"Archivo", Arial, sans-serif; --body:"DM Sans", Arial, sans-serif; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font: 400 11pt/1.55 var(--body); color: var(--ink); }
+  .page { width: 8.5in; height: 11in; position: relative; overflow: hidden; page-break-after: always; background: var(--bone); }
+  .page:last-child { page-break-after: auto; }
+  .pad { padding: 0.75in 0.75in 0.9in; }
+  .dark { background: var(--night); color: var(--bone); }
+  .kicker { font: 700 7.5pt/1.3 var(--wide); font-stretch: 125%; letter-spacing: .16em; text-transform: uppercase; color: var(--red); }
+  h1, h2, h3 { font-family: var(--tall); font-weight: 400; text-transform: uppercase; line-height: .9; letter-spacing: -.005em; }
+  h1 { font-size: 64pt; }
+  h2 { font-size: 40pt; margin: 8pt 0 16pt; }
+  h3 { font-size: 17pt; margin-bottom: 4pt; }
+  em { font-style: italic; color: var(--red); }
+  p + p { margin-top: 8pt; }
+  .lede { font-size: 12.5pt; line-height: 1.5; max-width: 5.4in; }
+  .folio { position: absolute; left: .75in; right: .75in; bottom: .45in; display: flex; justify-content: space-between; font: 700 6.5pt/1 var(--wide); font-stretch: 125%; letter-spacing: .16em; text-transform: uppercase; color: #8A7D72; }
+  .dark .folio { color: #6E625A; }
+  .rule { height: 2px; background: var(--night); margin: 14pt 0; }
+  .dark .rule { background: #3A322E; }
+
+  /* Cover */
+  .cover img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+  .cover .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16,13,12,.25) 0%, rgba(16,13,12,.2) 40%, rgba(16,13,12,.92) 72%, #100D0C 100%); }
+  .cover .logo { position: absolute; top: .65in; left: .75in; width: 1.35in; }
+  .cover .txt { position: absolute; left: .75in; right: .75in; bottom: .9in; color: var(--bone); }
+  .cover h1 { font-size: 78pt; margin: 10pt 0 14pt; }
+  .cover .lede { color: #E3D7CB; }
+
+  /* Welcome */
+  .welcome { display: grid; grid-template-columns: 2.7in 1fr; gap: .45in; height: 100%; align-items: center; }
+  .print { background: #fff; padding: 7pt 7pt 26pt; box-shadow: 0 18pt 30pt -14pt rgba(0,0,0,.45); transform: rotate(-2.5deg); }
+  .print img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+  .print span { display: block; margin-top: 7pt; font: 700 6.5pt/1 var(--wide); font-stretch: 125%; letter-spacing: .14em; text-transform: uppercase; color: #6B5F56; }
+  .sign { font: italic 400 26pt/1 var(--tall); color: var(--red); margin-top: 14pt; text-transform: none; }
+
+  /* Steps */
+  .steps { display: grid; gap: 0; border-top: 2px solid var(--night); }
+  .step { display: grid; grid-template-columns: .75in 1fr 1.35in; gap: 14pt; padding: 13pt 0; border-bottom: 1px solid var(--rule); align-items: start; }
+  .step b { font: 400 30pt/.85 var(--tall); color: var(--red); }
+  .step .when { font: 700 7pt/1.5 var(--wide); font-stretch: 125%; letter-spacing: .12em; text-transform: uppercase; color: #6B5F56; text-align: right; padding-top: 3pt; }
+  .step p { font-size: 10.5pt; }
+
+  /* Services */
+  .svc { display: grid; grid-template-columns: 1fr 1fr; gap: 16pt; }
+  .card { background: #fff; border: 1px solid var(--rule); display: grid; grid-template-rows: 1.75in auto; }
+  .card img { width: 100%; height: 1.75in; object-fit: cover; object-position: 50% 25%; display: block; }
+  .card div { padding: 12pt 14pt 14pt; }
+  .card p { font-size: 9.8pt; line-height: 1.5; }
+  .card .for { margin-top: 7pt; font: 700 6.8pt/1.5 var(--wide); font-stretch: 125%; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }
+
+  /* Lists */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: .4in; }
+  .ticks { list-style: none; border-top: 2px solid currentColor; }
+  .ticks li { display: flex; justify-content: space-between; gap: 12pt; padding: 8.5pt 0; border-bottom: 1px solid var(--rule); font-size: 10.3pt; }
+  .dark .ticks li { border-color: #2F2825; }
+  .ticks li span:last-child { font: 700 6.8pt/1.9 var(--wide); font-stretch: 125%; letter-spacing: .1em; text-transform: uppercase; color: #6B5F56; text-align: right; white-space: nowrap; }
+  .dark .ticks li span:last-child { color: var(--dust); }
+  .note { margin-top: 14pt; padding: 12pt 14pt; background: var(--night); color: var(--bone); font-size: 10pt; }
+  .note b { color: var(--red); font: 700 7pt/1.4 var(--wide); font-stretch: 125%; letter-spacing: .14em; text-transform: uppercase; display: block; margin-bottom: 4pt; }
+  .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8pt; margin-top: 18pt; }
+  .strip img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+  .dark p { color: #D9CDC1; }
+
+  /* Close */
+  .close img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: brightness(.33); }
+  .close .txt { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--bone); padding: 0 .9in; }
+  .close h2 { font-size: 58pt; }
+  .contact { margin-top: 22pt; display: grid; gap: 7pt; font: 700 9pt/1.4 var(--wide); font-stretch: 125%; letter-spacing: .1em; text-transform: uppercase; }
+  .contact a { color: var(--bone); text-decoration: none; }
+  .btn { display: inline-block; margin-top: 20pt; padding: 10pt 18pt; border-radius: 999px; background: var(--red); color: #fff; text-decoration: none; font: 700 8pt/1 var(--wide); font-stretch: 125%; letter-spacing: .14em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- 1 · Cover -->
+<section class="page cover dark">
+  <img class="bg" src="../assets/img/br-director.jpg" alt="">
+  <div class="shade"></div>
+  <img class="logo" src="../assets/img/logo-cream.png" alt="GLPX Studio">
+  <div class="txt">
+    <p class="kicker">The client guide · Orlando, FL</p>
+    <h1>Refuse to be <em>(forgettable).</em></h1>
+    <p class="lede">Everything you need to know about working with GLPX Studio, from our first call to your final gallery.</p>
+  </div>
+</section>
+
+<!-- 2 · Welcome -->
+<section class="page pad">
+  <div class="welcome">
+    <div class="print"><img src="../assets/img/gerson.jpg" alt=""><span>Gerson Lopez · Photographer</span></div>
+    <div>
+      <p class="kicker">Welcome</p>
+      <h2>Hi, I'm <em>Gerson.</em></h2>
+      <p class="lede">Thank you for booking a call. I've spent more than eight years photographing people, from album covers for Alex Rose and Anuel AA to headshots for realtors on a lunch break.</p>
+      <p>Most people tell me they hate having their picture taken. That's the part I enjoy. I direct the whole session, so you never have to guess where to stand or what to do with your hands. You just show up as yourself.</p>
+      <p>This guide walks you through how a shoot works, how to prepare, and what happens after. Keep it handy. If anything here raises a question, bring it to our call.</p>
+      <p class="sign">Gerson</p>
+    </div>
+  </div>
+  <div class="folio"><span>GLPX Studio · Client guide</span><span>02</span></div>
+</section>
+
+<!-- 3 · How it works -->
+<section class="page pad">
+  <p class="kicker">How it works</p>
+  <h2>From first call to <em>final gallery.</em></h2>
+  <div class="steps">
+    <div class="step"><b>01</b><div><h3>Strategy call</h3><p>A free call about where your photos will live and who needs to see them. No brief needed. Just tell me what you're working on.</p></div><span class="when">The call you just booked</span></div>
+    <div class="step"><b>02</b><div><h3>Custom quote</h3><p>You get a quote built around your shoot: time, looks, number of edited images and any add-ons like hair and makeup.</p></div><span class="when">Within 24 hours</span></div>
+    <div class="step"><b>03</b><div><h3>Lock your date</h3><p>A 50% deposit secures your date. The balance is due the day of the session.</p></div><span class="when">When you're ready</span></div>
+    <div class="step"><b>04</b><div><h3>Plan the shoot</h3><p>We agree on the shot list, outfits and locations, so shoot day is about you and not logistics.</p></div><span class="when">Before the session</span></div>
+    <div class="step"><b>05</b><div><h3>Shoot day</h3><p>A studio session in Orlando or on location wherever your work happens. I direct the whole time.</p></div><span class="when">Your session</span></div>
+    <div class="step"><b>06</b><div><h3>Your gallery</h3><p>Pick your favorites from a private online gallery. Your retouched images arrive print ready and sized for web.</p></div><span class="when">2 to 3 weeks</span></div>
+  </div>
+  <div class="folio"><span>GLPX Studio · Client guide</span><span>03</span></div>
+</section>
+
+<!-- 4 · Sessions -->
+<section class="page pad">
+  <p class="kicker">Choose your session</p>
+  <h2>Four ways to <em>work together.</em></h2>
+  <div class="svc">
+    <div class="card"><img src="../assets/img/br-pinkcoat.jpg" alt=""><div><h3>Branding</h3><p>One planned shoot that covers your website, LinkedIn, Instagram and press kit. Every frame has a job.</p><p class="for">Founders · realtors · coaches · small brands</p></div></div>
+    <div class="card"><img src="../assets/img/hs-tesoro.jpg" alt=""><div><h3>Headshots</h3><p>A clean, current headshot that looks like you on a good day. Guided posing and natural retouching.</p><p class="for">Professionals · actors · whole teams</p></div></div>
+    <div class="card"><img src="../assets/img/ed-alexrose.jpg" alt=""><div><h3>Editorial &amp; Music</h3><p>Album covers, press kits, beauty and fashion stories. Half day and full day productions.</p><p class="for">Artists · labels · creatives</p></div></div>
+    <div class="card"><img src="../assets/img/ev-a04.jpg" alt=""><div><h3>Corporate Events</h3><p>Conferences, launches and company parties covered in English and Spanish, with on site team headshots if you need them.</p><p class="for">Companies · agencies · organizers</p></div></div>
+  </div>
+  <div class="folio"><span>GLPX Studio · Client guide</span><span>04</span></div>
+</section>
+
+<!-- 5 · What to wear -->
+<section class="page pad">
+  <p class="kicker">Preparing for your shoot</p>
+  <h2>What to <em>wear.</em></h2>
+  <div class="two">
+    <div>
+      <ul class="ticks">
+        <li><span>Solid colors over busy patterns</span><span>Yes</span></li>
+        <li><span>Clothes that fit well and are pressed</span><span>Yes</span></li>
+        <li><span>A jacket or blazer for headshots</span><span>Bring it</span></li>
+        <li><span>One outfit per look in your package</span><span>Bring it</span></li>
+        <li><span>Big logos and loud prints</span><span>Skip</span></li>
+        <li><span>Brand new shoes you can't walk in</span><span>Skip</span></li>
+      </ul>
+      <div class="note"><b>Hair &amp; makeup</b>Professional hair and makeup can be added to any shoot. It makes a real difference on camera, and it means one less thing for you to manage.</div>
+    </div>
+    <div>
+      <ul class="ticks">
+        <li><span>Branding</span><span>Your work wardrobe</span></li>
+        <li><span>Headshots</span><span>Classic · simple</span></li>
+        <li><span>Actor headshots</span><span>Commercial + theatrical</span></li>
+        <li><span>Editorial &amp; music</span><span>Planned with you</span></li>
+      </ul>
+      <p style="margin-top:14pt">Bring anything you use in your work: a laptop, tools, product, an instrument. Props make branding photos feel real.</p>
+      <div class="strip">
+        <img src="../assets/img/br-blacksuit.jpg" alt="">
+        <img src="../assets/img/hs-18.jpg" alt="">
+        <img src="../assets/img/br-bw-woman.jpg" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>GLPX Studio · Client guide</span><span>05</span></div>
+</section>
+
+<!-- 6 · Shoot day -->
+<section class="page pad dark">
+  <p class="kicker">Shoot day</p>
+  <h2>What to <em>expect.</em></h2>
+  <div class="two">
+    <div>
+      <ul class="ticks">
+        <li><span>Arrive 10 minutes early</span><span>Settle in</span></li>
+        <li><span>Outfits on hangers, not folded</span><span>No wrinkles</span></li>
+        <li><span>Water and a light snack</span><span>Stay fresh</span></li>
+        <li><span>Lip balm, comb, any touch ups</span><span>Small kit</span></li>
+        <li><span>Your shot list or inspiration</span><span>Screenshots ok</span></li>
+      </ul>
+    </div>
+    <div>
+      <p>The first few minutes are just warming up. Nobody looks their best in the first frames, and that's expected.</p>
+      <p>I'll tell you exactly where to stand, how to angle your shoulders and what to do with your hands. You'll see images on the back of the camera as we go, so you can relax knowing it's working.</p>
+      <p>Sessions run in English or Spanish, whichever feels more natural to you.</p>
+    </div>
+  </div>
+  <div class="strip">
+    <img src="../assets/img/ab-bts-light.jpg" alt="">
+    <img src="../assets/img/ab-bts-camera.jpg" alt="">
+    <img src="../assets/img/ab-bts-steps.jpg" alt="">
+  </div>
+  <div class="folio"><span>GLPX Studio · Client guide</span><span>06</span></div>
+</section>
+
+<!-- 7 · After -->
+<section class="page pad">
+  <p class="kicker">After the shoot</p>
+  <h2>Your <em>gallery.</em></h2>
+  <div class="two">
+    <div>
+      <p class="lede">You'll get a text and email with a link to your private online gallery.</p>
+      <p>Tap the heart on your favorites so I know which ones to retouch first. Your edited images are retouched to look polished and still like you, then delivered print ready and sized for web.</p>
+      <p>Want more images edited than your package includes? Heart them and reply, and I'll send you a quote.</p>
+    </div>
+    <div>
+      <ul class="ticks">
+        <li><span>Private gallery link</span><span>Email + text</span></li>
+        <li><span>Choose your favorites</span><span>Tap the heart</span></li>
+        <li><span>Retouched images</span><span>2 to 3 weeks</span></li>
+        <li><span>Web and print sizes</span><span>Included</span></li>
+        <li><span>Tag @glpxstudio when you post</span><span>Please do</span></li>
+      </ul>
+      <div class="note"><b>One small favor</b>If you love your photos, a Google review helps other people in Orlando find GLPX Studio. It means a lot.</div>
+    </div>
+  </div>
+  <div class="rule" style="margin-top:26pt"></div>
+  <p class="kicker" style="color:#6B5F56">Good to know</p>
+  <ul class="ticks" style="border-top:0">
+    <li><span>A 50% deposit secures your date</span><span>Locks it in</span></li>
+    <li><span>The balance is due the day of the session</span><span>Day of shoot</span></li>
+    <li><span>Need to reschedule? Give 48 hours notice</span><span>One free move</span></li>
+  </ul>
+  <div class="folio"><span>GLPX Studio · Client guide</span><span>07</span></div>
+</section>
+
+<!-- 8 · Close -->
+<section class="page close dark">
+  <img class="bg" src="../assets/img/br-steps.jpg" alt="">
+  <div class="txt">
+    <p class="kicker">See you soon</p>
+    <h2>Let's make something <em>(unforgettable).</em></h2>
+    <p class="lede" style="color:#E3D7CB">Questions before our call? Reach out any time.</p>
+    <div class="contact">
+      <a href="tel:+14075347581">Call or text · (407) 534-7581</a>
+      <a href="mailto:glpxstudio@gmail.com">glpxstudio@gmail.com</a>
+      <a href="https://www.instagram.com/glpxstudio/">Instagram · @glpxstudio</a>
+      <a href="https://www.glpxstudio.com/">www.glpxstudio.com</a>
+    </div>
+    <a class="btn" href="https://www.glpxstudio.com/book.html">Book or reschedule your call</a>
+  </div>
+</section>
+
+</body>
+</html>
