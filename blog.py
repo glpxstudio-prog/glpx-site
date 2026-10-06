@@ -12,6 +12,8 @@ SRC = ROOT / "_blog_src"
 
 # Newest first, same order as the old blog index
 POSTS = [
+    "how-much-do-headshots-cost-orlando",
+    "studio-vs-on-location-headshots-orlando",
     "best-places-for-branding-photos-in-orlando",
     "branding-photos-vs-headshots",
     "what-to-wear-for-headshots-orlando",
@@ -26,6 +28,8 @@ POSTS = [
     "15-creative-poses-to-enhance-your-model-photography-portfolio",
 ]
 TOPIC = {  # where each post should send readers next
+    "how-much-do-headshots-cost-orlando": ("Headshots", "headshots.html"),
+    "studio-vs-on-location-headshots-orlando": ("Team headshots", "corporate-headshots-orlando.html"),
     "best-places-for-branding-photos-in-orlando": ("Branding", "branding.html"),
     "branding-photos-vs-headshots": ("Branding", "branding.html"),
     "what-to-wear-for-headshots-orlando": ("Headshots", "headshots.html"),
