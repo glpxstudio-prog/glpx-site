@@ -4,6 +4,7 @@ import json, re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 SITE = "https://www.glpxstudio.com/"
+VERSION = "20261005b"
 SKIP = {"index-v1.html", "index-v2.html", "artifact-index.html"}
 
 BUSINESS = {
@@ -52,6 +53,9 @@ def finish(path, url=None):
         head_add += '<link rel="icon" href="assets/img/favicon.png">\n<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">\n'
     if head_add:
         html = html.replace("</head>", head_add + "</head>", 1)
+
+    # Cache-bust stylesheets/scripts so phones load fixes right away (bump VERSION after style changes)
+    html = re.sub(r'(assets/(?:style|v2|inner)\.css|assets/site\.js)(\?v=[\w.]+)?"', lambda m: m.group(1) + "?v=" + VERSION + '"', html)
 
     # Lazy-load every photo after the first two on the page (those are above the fold).
     before, sep, after = html.partition("<main>")
