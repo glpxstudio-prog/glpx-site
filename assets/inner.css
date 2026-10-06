@@ -242,3 +242,20 @@
   .pf-txt { text-align: center; justify-items: center; }
   .pf-go { justify-self: center; }
 }
+
+/* ---------- Reviews on inside pages ---------- */
+.inner .rev-sec .v2-rev-grid { margin-top: 0; }
+.inner .rev-sec .v2-rev-grid.rev-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.inner .rev-sec .v2-rev-grid.rev-2 .v2-rev:nth-child(2n) { border-right: 0; }
+.inner .rev-sec .v2-rev blockquote { font-size: 1.5rem; }
+.inner .rev-more { margin-top: 22px; font: 700 11px/1 var(--wide); font-stretch: 125%; letter-spacing: .12em; text-transform: uppercase; }
+@media (max-width: 760px) {
+  .inner .rev-sec .v2-rev-grid.rev-2 { grid-template-columns: 1fr; }
+  .inner .rev-sec .v2-rev { text-align: center; border-right: 0 !important; }
+  .inner .rev-more { text-align: center; }
+}
+@media (max-width: 760px) {
+  .sheet.is-collapsed .frame:nth-of-type(n+7) { display: none; }
+  .sheet-more { display: block; margin: 18px auto 0; color: var(--bone); background: transparent; cursor: pointer; }
+  .inner .step p { font-size: 14px; }
+}

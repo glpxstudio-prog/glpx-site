@@ -113,6 +113,32 @@ def sheet(frames, rebate, cls=""):
             f'\n<div class="sheet-rebate">{"".join(f"<span>{r}</span>" for r in rebate)}</div>\n</div>')
 
 
+REVIEW_URL = "https://www.google.com/search?q=GLPX+Studio+Orlando#lrd=0xae321d709281f5d:0xc845892b9d5b52b4,1,,,,"
+REVIEWS = {
+    "johan": ("He took the time to understand my brand, my vision, and the message I wanted to communicate through my photos. He doesn\u2019t just take pictures. He helps bring your brand to life through powerful visual storytelling.", "Johan Fitch", "CutsbyJohan"),
+    "grace": ("I needed a branding photo shoot for my real estate business, he offered valuable guidance and secured an excellent studio for us. He is very professional and very attentive to every detail.", "Grace N", "Real estate"),
+    "charlyn": ("GLPX Studio is hands down the best photographer in Orlando. Their eye for detail, lighting, and storytelling is on another level.", "Charlyn Castro-Rojas", "Branding client"),
+    "gabriel": ("From editorial shoots to outdoor concepts and creative direction, their versatility and eye for detail are unmatched.", "Gabriel Bravo", "Creative partner since 2020"),
+    "ashana": ("My headshots came out so beautiful and I\u2019m so excited to book here again. Gerson was extremely professional and gave clear directions to capture the perfect shots.", "Ashana G", "Headshots"),
+    "melany": ("I absolutely love my professional headshots. Gerson was punctual, professional and knows how the get the best shots. I highly recommend!", "Melany Stewart", "Headshots"),
+}
+
+
+def reviews_section(keys, heading="What clients say."):
+    cards = "".join(
+        f'<figure class="v2-rev"><span class="stars" aria-label="5 out of 5 stars">\u2605\u2605\u2605\u2605\u2605</span>'
+        f'<blockquote>\u201c{REVIEWS[k][0]}\u201d</blockquote><figcaption><b>{REVIEWS[k][1]}</b><span>{REVIEWS[k][2]}</span></figcaption></figure>'
+        for k in keys)
+    return f'''  <section class="section rev-sec">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Google reviews · 5.0 \u2605</p><h2>{heading}</h2></div>
+      <div class="v2-rev-grid rev-{len(keys)}">{cards}</div>
+      <p class="rev-more"><a href="{REVIEW_URL}" target="_blank" rel="noopener">Read all reviews on Google \u2192</a></p>
+    </div>
+  </section>
+'''
+
+
 def faq(items):
     return '<div class="faq">' + "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in items) + "</div>"
 
@@ -218,6 +244,7 @@ branding = f'''  <section class="page-hero page-hero--red">
     </div>
   </section>
 
+{reviews_section(["grace", "johan", "charlyn"], "Clients on their branding shoots.")}
   <section class="section">
     <div class="wrap">
       <div class="section-head"><p class="eyebrow">Questions</p><h2>Before you book.</h2></div>
@@ -327,7 +354,7 @@ headshots = f'''  <section class="page-hero page-hero--ink">
       <div>
         <p class="eyebrow">Pricing</p>
         <h2>Ask for a quote.</h2>
-        <p>Headshot pricing depends on how many people and looks you need. Tell me on a quick call and I'll send a quote the same day. Need more than a headshot? Starter Branding includes ten edited images across two outfits.</p>
+        <p>Headshot pricing depends on how many people and looks you need. Tell me on a quick call and I'll send a quote within 24 hours. Need more than a headshot? Starter Branding includes ten edited images across two outfits.</p>
         <p>Teams and offices are welcome. Ask about group sessions.</p>
         <div><a class="btn btn--red" href="{BOOK}" target="_blank" rel="noopener">Get a quote</a></div>
       </div>
@@ -345,6 +372,7 @@ headshots = f'''  <section class="page-hero page-hero--ink">
     </div>
   </section>
 
+{reviews_section(["ashana", "melany"], "Clients on their headshots.")}
 {closer("Retire the <em>cropped</em> vacation photo.")}'''
 page("headshots.html", "Headshot Photography in Orlando · GLPX Studio",
      "Professional headshots in Orlando for actors, lawyers, doctors, realtors, executives and teams. Guided studio sessions with coaching and retouching.", headshots)
@@ -434,6 +462,7 @@ editorial = f'''  <section class="page-hero page-hero--black">
     </div>
   </section>
 
+{reviews_section(["gabriel", "charlyn"], "Creatives on working with GLPX.")}
 {closer("Got a release <em>coming up?</em>", "Send the date and the mood. We'll build the shoot around it.")}'''
 page("editorial.html", "Editorial &amp; Music Photography in Orlando · GLPX Studio",
      "Album covers, artist portraits, beauty and fashion editorials in Orlando. Half day and full day productions. Album credits with Alex Rose and Anuel AA.", editorial)
@@ -551,7 +580,7 @@ contact = f'''  <section class="page-hero page-hero--red">
         ("How do I secure a date?", "A 50% deposit secures your date. The balance is due the day of the session."),
         ("Where are sessions held?", "Studio sessions take place in Orlando. On-location shoots can happen anywhere in the city, including Downtown, Winter Park, Lake Nona, Baldwin Park, Dr. Phillips and Windermere. Full Day sessions include travel within one hour."),
         ("¿Hablas español?", "Sí. Las sesiones pueden ser en español o en inglés."),
-        ("What does it cost?", "Every shoot is quoted to fit what you need: how many people, looks, locations and images. Book a free strategy call and I'll send a quote the same day."),
+        ("What does it cost?", "Every shoot is quoted to fit what you need: how many people, looks, locations and images. Book a free strategy call and I'll send a quote within 24 hours."),
       ])}
     </div>
   </section>'''

@@ -2,7 +2,8 @@
 Run:  python3 areas.py      (this also re-runs build.py first)"""
 import re, pathlib
 import build
-from build import page, frame, sheet, faq, closer, BOOK, ROOT
+from build import page, frame, sheet, faq, closer, reviews_section, BOOK, ROOT
+from area_extra import EXTRA
 
 SITE = "https://www.glpxstudio.com/"
 
@@ -146,7 +147,7 @@ SERVICES = dict(
         pool=["hs-tesoro", "hs-17", "hs-03", "hs-yamil", "hs-18", "hs-green", "hs-redtop", "hs-16", "hs-19", "hs-navytop", "hs-10", "br-curlyman", "hs-01"],
         caption="Headshots",
         pricing='''<div class="split" style="gap:32px">
-          <div><h3>Ask for a quote</h3><p>Headshot pricing depends on how many people and looks you need. Tell me on a quick call and I'll send a quote the same day.</p>
+          <div><h3>Ask for a quote</h3><p>Headshot pricing depends on how many people and looks you need. Tell me on a quick call and I'll send a quote within 24 hours.</p>
           <div><a class="btn btn--red" href="{BOOK}" target="_blank" rel="noopener">Get a quote</a></div></div>
           <div><h3>Need more than a headshot?</h3><p>Starter Branding includes ten edited images across two outfits, so you get your headshot plus photos for your website and social media.</p></div>
         </div>''',
@@ -210,6 +211,29 @@ def area_page(svc_key, area, i):
               if area["kind"] != "city" or area["slug"] == "orlando" else
               f"Yes. I travel to {a} for on location sessions, and studio sessions take place in Orlando. Full Day sessions include travel within one hour.")
     where = (f"<p>{area['venue']}</p>" if svc_key == "events" else "")
+    REV = {"branding": ["grace", "johan"], "headshots": ["ashana", "melany"], "editorial": ["gabriel", "charlyn"], "events": ["charlyn", "gabriel"]}
+    X = EXTRA.get(area["slug"])
+    svc_line = f"<p>{X['svc'][svc_key]}</p>" if X else ""
+    local = ""
+    if X:
+        local = f'''  <section class="section cream">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Planning a session in {a}</p>
+        <h2>How a {a} shoot comes together.</h2>
+        <p>{X["plan"]}</p>
+      </div>
+      <div>
+        <ul class="ticks spots">
+          <li><span>Best light</span><span>{X["light"]}</span></li>
+          <li><span>Getting around</span><span>{X["logistics"]}</span></li>
+          <li><span>Studio or on location</span><span>Studio sessions take place in a rented studio in Orlando. On location shoots happen right in {a}.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+'''
     body = f'''  <section class="page-hero {S["hero"]}">
     <div class="wrap">
       <div class="hero-copy">
@@ -234,6 +258,7 @@ def area_page(svc_key, area, i):
         <p class="eyebrow">{S["label"]} in {a}</p>
         <h2>Why shoot in {a}?</h2>
         <p>{area["intro"]}</p>
+        {svc_line}
         {where}
         <p>I usually work with {area["who"]} here.</p>
       </div>
@@ -251,6 +276,7 @@ def area_page(svc_key, area, i):
     </div>
   </section>
 
+{local}{reviews_section(REV[svc_key], "What clients say.")}
   <section class="section cream">
     <div class="wrap">
       <div class="section-head"><p class="eyebrow">Pricing</p><h2>A quote built around your shoot.</h2></div>

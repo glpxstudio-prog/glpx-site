@@ -50,3 +50,19 @@
     if (Math.abs(dx) > 50) show(dx < 0 ? i + 1 : i - 1); x0 = null;
   });
 })();
+
+/* Phones: show the first 6 photos of long galleries, with a button to see the rest */
+(function () {
+  if (!window.matchMedia('(max-width: 760px)').matches) return;
+  document.querySelectorAll('.sheet').forEach(function (sheet) {
+    var frames = sheet.querySelectorAll('.frame');
+    if (frames.length <= 8) return;
+    sheet.classList.add('is-collapsed');
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn btn--ghost sheet-more';
+    btn.textContent = 'See all ' + frames.length + ' photos';
+    btn.addEventListener('click', function () { sheet.classList.remove('is-collapsed'); btn.remove(); });
+    sheet.insertAdjacentElement('afterend', btn);
+  });
+})();
