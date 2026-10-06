@@ -8,7 +8,7 @@ BOOK = "https://api.leadconnectorhq.com/widget/booking/6PJmFlf8wO5cNephtWVJ"
 GALLERY = "https://gallery.glpxstudio.com"
 FONTS = ("https://fonts.googleapis.com/css2?family=Libre+Caslon+Condensed:ital,wght@0,400;0,700;1,400"
          "&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Archivo:wdth,wght@125,700&display=swap")
-NAV = [("branding.html", "Branding"), ("headshots.html", "Headshots"),
+NAV = [("portfolio.html", "Portfolio"), ("branding.html", "Branding"), ("headshots.html", "Headshots"),
        ("editorial.html", "Editorial"), ("about.html", "About"), ("contact.html", "Contact"), ("client-gallery.html", "Client Gallery")]
 BOOK_PAGE = "book.html"
 

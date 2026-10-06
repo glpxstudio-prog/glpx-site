@@ -4,7 +4,7 @@ import json, re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 SITE = "https://www.glpxstudio.com/"
-VERSION = "20261005e"
+VERSION = "20261005f"
 SKIP = {"index-v1.html", "index-v2.html", "artifact-index.html"}
 
 BUSINESS = {

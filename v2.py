@@ -26,7 +26,7 @@ svc_html = "\n".join(f'''    <div class="v2-svc">
         <h3 class="wide">{name}</h3>
         <p>{txt}</p>
         <span class="kicker inv">{inv}</span>
-        <div class="actions"><a class="pill pill--act" href="{BOOK}" target="_blank" rel="noopener">Book this service</a><a class="pill" href="{href}">See the work</a></div>
+        <div class="actions"><a class="pill pill--act" href="{BOOK}" target="_blank" rel="noopener">Book this service</a><a class="pill" href="{href}">See {name.split(" &amp;")[0].lower()} work</a></div>
       </div>
     </div>''' for n, name, img, txt, inv, href in services)
 
@@ -41,7 +41,7 @@ body = f'''  <section class="hero hero--photo v2-trio-hero v2-dark-hero">
         <p class="lede">Portraits for founders, realtors, artists and executives who need their photos to do some of the selling. Studio sessions in Orlando, or on location wherever your work happens.</p>
         <div class="hero-actions">
           <a class="pill pill--act" href="{BOOK}" target="_blank" rel="noopener">Book a free strategy call</a>
-          <a class="pill" href="#work">See the work</a>
+          <a class="pill" href="portfolio.html">See the work</a>
         </div>
       </div>
     </div>
@@ -77,7 +77,7 @@ body = f'''  <section class="hero hero--photo v2-trio-hero v2-dark-hero">
       <div class="v2-work">
 {work_html}
       </div>
-      <div class="v2-work-foot"><a class="pill" href="branding.html">View the full portfolio</a></div>
+      <div class="v2-work-foot"><a class="pill" href="portfolio.html">View the full portfolio</a></div>
     </div>
   </section>
 

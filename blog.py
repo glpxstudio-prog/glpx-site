@@ -180,7 +180,7 @@ REDIRECTS = {
     "about-us": "about.html",
     "contact-us": "contact.html",
     "services": "index.html",
-    "portfolio": "branding.html",
+    "portfolio": "portfolio.html",
     "fashion-editorial": "editorial.html",
     "proofing": "client-gallery.html",
     "thank-you-page": "contact.html",

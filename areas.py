@@ -313,7 +313,7 @@ for f, k in strip_for.items():
     (ROOT / f).write_text(html)
 
 # ------------------------------------------------------------------ sitemap + robots
-urls = ["", "branding.html", "headshots.html", "editorial.html", "about.html", "contact.html", "areas.html", "book.html"]
+urls = ["", "branding.html", "headshots.html", "editorial.html", "about.html", "contact.html", "areas.html", "book.html", "portfolio.html"]
 urls += [fname(k, a) for a in AREAS for k in ORDER]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
                                   "".join(f"  <url><loc>{SITE}{u}</loc></url>\n" for u in urls) + "</urlset>\n")
