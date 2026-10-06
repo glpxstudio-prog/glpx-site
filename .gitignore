@@ -1,0 +1,5 @@
+__pycache__/
+artifact-*.html
+.DS_Store
+index-v1.html
+index-v2.html
