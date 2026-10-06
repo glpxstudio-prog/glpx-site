@@ -414,3 +414,7 @@ p { margin: 0; }
   .nav .menu-panel a:not(.btn) { display: block; color: var(--cream); }
   .nav .menu-panel a[aria-current="page"] { color: var(--red); }
 }
+
+/* Center the face in landscape headshots cropped to portrait frames */
+.frame img[src$="hs-redtop.jpg"] { object-position: 40% 50%; }
+.frame img[src$="hs-19.jpg"] { object-position: 63% 50%; }
