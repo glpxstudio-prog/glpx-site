@@ -193,19 +193,26 @@ REDIRECTS = {
     "proofing": "client-gallery.html",
     "thank-you-page": "contact.html",
     "easter-photos": "branding.html",
+    "home": "index.html",
+    "homepage": "index.html",
+    "newsletter": "index.html",
 }
+# Old Pixpa comment pages for each blog post (Search Console shows these as 404)
+for s in POSTS:
+    REDIRECTS[f"blog-post-comments/{s}"] = f"blog/{s}/"
 for old, new in REDIRECTS.items():
     target = SITE + ("" if new == "index.html" else new)
+    up = "../" * (old.count("/") + 1)
     d = ROOT / old
-    d.mkdir(exist_ok=True)
+    d.mkdir(parents=True, exist_ok=True)
     (d / "index.html").write_text(f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <title>Moved · GLPX Studio</title>
 <link rel="canonical" href="{target}">
 <meta name="robots" content="noindex, follow">
-<meta http-equiv="refresh" content="0; url=../{new}">
-<script>location.replace("../{new}" + location.hash)</script>
-</head><body><p>This page moved to <a href="../{new}">{target}</a>.</p></body></html>
+<meta http-equiv="refresh" content="0; url={up}{new}">
+<script>location.replace("{up}{new}" + location.hash)</script>
+</head><body><p>This page moved to <a href="{up}{new}">{target}</a>.</p></body></html>
 ''')
 
 # ------------------------------------------------------------------ sitemap additions
