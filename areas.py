@@ -194,6 +194,10 @@ def picks(pool, i, n):
     return rot[:n]
 
 
+# Low-value combinations: still reachable, but Google is asked to skip them so stronger pages carry more weight
+NOINDEX = {("events", "thornton-park"), ("events", "lake-eola"), ("editorial", "celebration"), ("editorial", "oviedo")}
+
+
 def area_page(svc_key, area, i):
     S = SERVICES[svc_key]
     a = area["name"]
@@ -299,7 +303,8 @@ def area_page(svc_key, area, i):
           f'"areaServed":"{a}, FL","serviceType":"{S["label"]} photography",'
           '"address":{"@type":"PostalAddress","addressLocality":"Orlando","addressRegion":"FL","addressCountry":"US"}}</script>\n')
     desc = f'{S["label"]} photography in {a}, FL by GLPX Studio. {S["lede"].format(a=a).split(". ")[0]}. Book a free strategy call.'
-    page(fname(svc_key, area), S["title"].format(a=a) + " · GLPX Studio", desc.replace('"', "'"), body, ld)
+    robots = '<meta name="robots" content="noindex, follow">\n' if (svc_key, area["slug"]) in NOINDEX else ""
+    page(fname(svc_key, area), S["title"].format(a=a) + " · GLPX Studio", desc.replace('"', "'"), body, robots + ld)
 
 
 for i, area in enumerate(AREAS):
@@ -340,7 +345,7 @@ for f, k in strip_for.items():
 
 # ------------------------------------------------------------------ sitemap + robots
 urls = ["", "branding.html", "headshots.html", "editorial.html", "about.html", "contact.html", "areas.html", "book.html", "portfolio.html"]
-urls += [fname(k, a) for a in AREAS for k in ORDER]
+urls += [fname(k, a) for a in AREAS for k in ORDER if (k, a["slug"]) not in NOINDEX]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
                                   "".join(f"  <url><loc>{SITE}{u}</loc></url>\n" for u in urls) + "</urlset>\n")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE}sitemap.xml\n")

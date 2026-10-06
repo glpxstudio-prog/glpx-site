@@ -84,3 +84,86 @@ EXTRA = {
             events="Lake Mary events at corporate campuses, hotels and the Lake Mary Events Center get coverage of speakers, awards and team moments.",
         )),
 }
+
+EXTRA.update({
+    "windermere": dict(
+        plan="Windermere sessions usually lean elevated and calm. Many clients shoot at their own home or a listing they represent, then add a few waterfront portraits on the Butler Chain of Lakes for a relaxed luxury feel.",
+        light="The hour before sunset on the water is the best light in Windermere. Indoors, we bring lighting so a home or office looks bright and warm.",
+        logistics="Home and listing sessions are scheduled with you ahead of time. Historic downtown Windermere is small and walkable, with easy parking near Main Street.",
+        svc=dict(
+            branding="Windermere branding suits luxury realtors, executives and private practices who need images that feel as polished as the homes and clients they work with.",
+            headshots="Windermere headshots can be shot at your home or office, or in a studio in Orlando if you want a classic backdrop.",
+            editorial="Waterfront docks, open lawns and elegant interiors give Windermere editorial shoots a quiet, high end look.",
+            events="Windermere events at private estates and clubs call for discreet coverage that captures guests without getting in the way.",
+        )),
+    "thornton-park": dict(
+        plan="Thornton Park is where I'm based, so sessions here are easy to plan. We walk the brick streets under the oaks, step into a cafe for lifestyle shots, and finish by Lake Eola if you want a skyline in the frame.",
+        light="The oak canopy keeps light soft for most of the day. Lake Eola is a short walk away for golden hour.",
+        logistics="Street parking is tight on weekends, so weekday mornings are the easiest. Everything is within a short walk, so outfit changes stay quick.",
+        svc=dict(
+            branding="Thornton Park branding suits creatives, small business owners and coaches who want a local, lived in feel.",
+            headshots="Thornton Park headshots can be shot outdoors under the oaks for a soft look, or in a studio in Orlando a few minutes away.",
+            editorial="Brick, shade and sidewalk cafes give Thornton Park editorial shoots an easy, cinematic city feel.",
+            events="Thornton Park and nearby downtown restaurants and lofts work well for smaller company gatherings with relaxed, candid coverage.",
+        )),
+    "lake-eola": dict(
+        plan="A Lake Eola session puts Orlando in the frame. We usually start at the fountain early, move around the lakeside loop for variety, and use the amphitheater and the downtown skyline for full length portraits.",
+        light="Early morning is the best time, with soft light and fewer people. Golden hour works beautifully too, with the skyline glowing behind you.",
+        logistics="The park is busiest on weekends and evenings. We meet near a downtown garage and walk the loop, so you can keep spare outfits close.",
+        svc=dict(
+            branding="Lake Eola branding is perfect for founders, realtors and artists who want their photos to say Orlando at a glance.",
+            headshots="Lake Eola headshots give you an outdoor option with soft skyline in the background, great for LinkedIn and speaker bios.",
+            editorial="The fountain, swan boats and amphitheater give Lake Eola editorial shoots an iconic, recognizable setting.",
+            events="Downtown hotels and venues around Lake Eola host company events, with outdoor group photos by the lake if you want them.",
+        )),
+    "winter-garden": dict(
+        plan="Winter Garden sessions feel local and real. We usually shoot inside your shop, cafe or studio space first, then step out to Plant Street for storefront and walking shots.",
+        light="Morning light on Plant Street is soft and even. The downtown pavilion and the West Orange Trail offer shade on bright afternoons.",
+        logistics="Plant Street has public parking nearby, and weekday mornings avoid the weekend crowds and farmers market traffic.",
+        svc=dict(
+            branding="Winter Garden branding suits boutique and cafe owners, makers and realtors who want photos that feel like their community.",
+            headshots="Winter Garden headshots can be shot on site at your business or in a studio in Orlando for a classic look.",
+            editorial="Historic storefronts and brick along Plant Street give Winter Garden editorial shoots a warm, small town character.",
+            events="Winter Garden event halls, breweries and restaurants host company gatherings that call for candid, relaxed coverage.",
+        )),
+    "altamonte-springs": dict(
+        plan="Altamonte Springs clients often need a mix of polished and practical: team headshots on site at the office, plus a few bright outdoor portraits around Cranes Roost Park.",
+        light="The boardwalk at Cranes Roost looks best in the morning or late afternoon. Indoors, we bring lighting for consistent results.",
+        logistics="Uptown Altamonte has easy parking. On site team sessions run on a simple schedule so nobody loses much of the workday.",
+        svc=dict(
+            branding="Altamonte Springs branding suits medical practices, insurance and finance pros who need trustworthy images for a website and social media.",
+            headshots="Altamonte Springs team headshots are shot on site with a consistent backdrop, so every bio on your website matches.",
+            editorial="The lake, boardwalk and modern buildings around Cranes Roost give editorial shoots bright, clean backdrops.",
+            events="Hotel conference rooms and event space around Uptown and Cranes Roost host company events with coverage of speakers and guests.",
+        )),
+    "sanford": dict(
+        plan="Sanford has real character, so we use it. Sessions often start inside your restaurant, brewery or shop, then move to First Street murals and the riverwalk on Lake Monroe for open, bright portraits.",
+        light="The riverwalk is beautiful at sunset. First Street's brick and storefronts photograph well in morning shade.",
+        logistics="Downtown Sanford is walkable with street parking. We plan around your business hours so customers aren't interrupted.",
+        svc=dict(
+            branding="Sanford branding suits restaurant and brewery owners, makers and artists who want images with personality.",
+            headshots="Sanford headshots can be shot at your business or in a studio in Orlando, with an outdoor option on the riverwalk.",
+            editorial="Murals, brick and Lake Monroe views give Sanford editorial shoots a creative, textured feel.",
+            events="Historic downtown venues and breweries in Sanford host company events that suit candid, story driven coverage.",
+        )),
+    "oviedo": dict(
+        plan="Oviedo sessions are usually fresh and modern. Clients near UCF often want a clean headshot plus a few lifestyle frames around Center Lake Park or Oviedo on the Park.",
+        light="Center Lake Park looks best in the morning or late afternoon, with water and open sky behind you.",
+        logistics="Parking at Oviedo on the Park is easy, and the park, paths and amphitheater are all close together.",
+        svc=dict(
+            branding="Oviedo branding suits founders, coaches and local business owners who want a modern, approachable look.",
+            headshots="Oviedo headshots are popular with UCF grads, researchers and young professionals updating LinkedIn.",
+            editorial="The amphitheater and lakeside paths at Center Lake Park give Oviedo editorial shoots open, modern backdrops.",
+            events="Oviedo community venues and nearby hotels host smaller company events with relaxed coverage.",
+        )),
+    "celebration": dict(
+        plan="Celebration makes polished photos easy. Market Street storefronts work for lifestyle branding, and the lakefront and tree lined streets give you calm, timeless portraits.",
+        light="Mornings by the lakefront are soft and quiet. Market Street has shade from the buildings most of the day.",
+        logistics="The town center is compact and walkable, with public parking close to Market Street.",
+        svc=dict(
+            branding="Celebration branding suits realtors, wellness pros and family run businesses who want a clean, bright look.",
+            headshots="Celebration headshots can be shot outdoors in town or in a studio in Orlando for a classic backdrop.",
+            editorial="Classic architecture and the lakefront give Celebration editorial shoots a timeless, storybook feel.",
+            events="Celebration and the nearby resort area host company events at hotels and venues, with coverage planned around your schedule.",
+        )),
+})
