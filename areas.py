@@ -4,6 +4,7 @@ import re, pathlib
 import build
 from build import page, frame, sheet, faq, closer, reviews_section, BOOK, ROOT
 from area_extra import EXTRA
+from alt_text import ALT_EXTRA
 
 SITE = "https://www.glpxstudio.com/"
 
@@ -198,6 +199,18 @@ def picks(pool, i, n):
 NOINDEX = {("events", "thornton-park"), ("events", "lake-eola"), ("editorial", "celebration"), ("editorial", "oviedo")}
 
 
+_ALT = {}
+for _src in ("build.py", "services2.py", "v2.py"):
+    _txt = (ROOT / _src).read_text()
+    _ALT.update(re.findall(r'<img src="assets/img/([\w-]+)\.jpg" alt="([^"{]+)"', _txt))
+    _ALT.update(re.findall(r'frame\("([\w-]+)\.jpg", "([^"]+)"', _txt))
+_ALT.update(ALT_EXTRA)
+
+
+def alt_for(img, S):
+    return _ALT.get(img, f"{S['caption']} photo by GLPX Studio")
+
+
 def area_page(svc_key, area, i):
     S = SERVICES[svc_key]
     a = area["name"]
@@ -207,31 +220,39 @@ def area_page(svc_key, area, i):
     else:
         p = picks(S["pool"], i, 7)
         hero, gal = p[0], p[1:7]
-    frames = [frame(f"{g}.jpg", f"{S['caption']} photo by GLPX Studio", S["caption"], f"{(n * 3 + 2):02d}") for n, g in enumerate(gal)]
+    frames = [frame(f"{g}.jpg", alt_for(g, S), S["caption"], f"{(n * 3 + 2):02d}") for n, g in enumerate(gal)]
     spots = "".join(f"<li><span>{n}</span><span>{d}</span></li>" for n, d in area["spots"])
     others = " · ".join(f'<a href="{fname(k, area)}">{SERVICES[k]["label"]} in {a}</a>' for k in ORDER if k != svc_key)
     nearby = "".join(f'<a href="{fname(svc_key, b)}">{b["name"]}</a>' for b in AREAS if b is not area)
-    travel = (f"Yes. {a} is part of my regular area. On location sessions happen right in {a}, and studio sessions take place in Orlando."
-              if area["kind"] != "city" or area["slug"] == "orlando" else
+    if area["slug"] == "orlando":
+        studio_line = "Studio sessions take place in a rented studio in the city. On location shoots can happen anywhere in Orlando."
+    else:
+        studio_line = f"Studio sessions take place in a rented studio in Orlando. On location shoots happen right in {a}."
+    travel = (f"Yes. Orlando is home base. Studio sessions take place in a rented studio here, and on location shoots can happen anywhere in the city."
+              if area["slug"] == "orlando" else
+              f"Yes. {a} is part of my regular area. On location sessions happen right in {a}, and studio sessions take place in Orlando."
+              if area["kind"] != "city" else
               f"Yes. I travel to {a} for on location sessions, and studio sessions take place in Orlando. Full Day sessions include travel within one hour.")
-    where = (f"<p>{area['venue']}</p>" if svc_key == "events" else "")
+    where = (f"<p>{area['venue']}</p>" if svc_key == "events" and not EXTRA.get(area["slug"]) else "")
     REV = {"branding": ["grace", "johan"], "headshots": ["ashana", "melany"], "editorial": ["gabriel", "charlyn"], "events": ["charlyn", "gabriel"]}
     X = EXTRA.get(area["slug"])
     svc_line = f"<p>{X['svc'][svc_key]}</p>" if X else ""
     local = ""
+    who_line = "" if svc_key == "events" else f'<p>I usually work with {area["who"]} here.</p>'
+    spots_label = "Nearby spots for team portraits" if svc_key == "events" else "Where we can shoot"
     if X:
         local = f'''  <section class="section cream">
     <div class="wrap split">
       <div>
         <p class="eyebrow">Planning a session in {a}</p>
-        <h2>How a {a} shoot comes together.</h2>
+        <h2>How a shoot in {a} comes together.</h2>
         <p>{X["plan"]}</p>
       </div>
       <div>
         <ul class="ticks spots">
           <li><span>Best light</span><span>{X["light"]}</span></li>
           <li><span>Getting around</span><span>{X["logistics"]}</span></li>
-          <li><span>Studio or on location</span><span>Studio sessions take place in a rented studio in Orlando. On location shoots happen right in {a}.</span></li>
+          <li><span>Studio or on location</span><span>{studio_line}</span></li>
         </ul>
       </div>
     </div>
@@ -250,7 +271,7 @@ def area_page(svc_key, area, i):
         </div>
       </div>
       <figure class="print">
-        <img src="assets/img/{hero}.jpg" alt="{S["caption"]} photo by GLPX Studio">
+        <img src="assets/img/{hero}.jpg" alt="{alt_for(hero, S)}">
         <figcaption><span>{S["label"]} · {a}</span><span>Fr. 01</span></figcaption>
       </figure>
     </div>
@@ -264,10 +285,10 @@ def area_page(svc_key, area, i):
         <p>{area["intro"]}</p>
         {svc_line}
         {where}
-        <p>I usually work with {area["who"]} here.</p>
+        {who_line}
       </div>
       <div>
-        <p class="eyebrow">Where we can shoot</p>
+        <p class="eyebrow">{spots_label}</p>
         <ul class="ticks spots">{spots}</ul>
       </div>
     </div>
@@ -302,7 +323,9 @@ def area_page(svc_key, area, i):
           f'"url":"{SITE}{fname(svc_key, area)}","telephone":"+1-407-534-7581","email":"glpxstudio@gmail.com",'
           f'"areaServed":"{a}, FL","serviceType":"{S["label"]} photography",'
           '"address":{"@type":"PostalAddress","addressLocality":"Orlando","addressRegion":"FL","addressCountry":"US"}}</script>\n')
-    desc = f'{S["label"]} photography in {a}, FL by GLPX Studio. {S["lede"].format(a=a).split(". ")[0]}. Book a free strategy call.'
+    noun = {"branding": "Branding photography", "headshots": "Headshot photography",
+            "editorial": "Editorial and music photography", "events": "Corporate event photography"}[svc_key]
+    desc = f'{noun} in {a}, FL by GLPX Studio. {S["lede"].format(a=a).split(". ")[0].rstrip(".")}. Book a free strategy call.'
     robots = '<meta name="robots" content="noindex, follow">\n' if (svc_key, area["slug"]) in NOINDEX else ""
     page(fname(svc_key, area), S["title"].format(a=a) + " · GLPX Studio", desc.replace('"', "'"), body, robots + ld)
 
