@@ -50,13 +50,14 @@ FOOTER = f'''<footer class="site-foot">
 </footer>'''
 
 
-def closer(title_html, sub=""):
+def closer(title_html, sub="", cta=None):
+    label, href = cta if cta else ("Book a free strategy call", BOOK)
     return f'''  <section class="closer">
     <div class="wrap">
       <p class="eyebrow">Next step</p>
       <h2>{title_html}</h2>
       {f"<p class='lede'>{sub}</p>" if sub else ""}
-      <div><a class="btn btn--solid" href="{BOOK}" target="_blank" rel="noopener">Book a free strategy call</a></div>
+      <div><a class="btn btn--solid" href="{href}" target="_blank" rel="noopener">{label}</a></div>
       <div class="contact-lines"><a href="tel:+14075347581">Call (407) 534-7581</a><a href="sms:+14075347581">Text me</a><a href="mailto:glpxstudio@gmail.com">glpxstudio@gmail.com</a><a href="https://www.instagram.com/glpxstudio/" target="_blank" rel="noopener">@glpxstudio</a></div>
     </div>
   </section>'''
@@ -144,25 +145,28 @@ def faq(items):
 
 
 # ---------------------------------------------------------------- HOME
-home_src = (ROOT / "index-v1.html").read_text()  # old red homepage (backup); live homepage comes from v2.py
-home_main = re.search(r"<main>(.*?)</main>", home_src, re.S).group(1).strip("\n")
-if "<!-- built -->" not in home_main:
-    cat_link = {"Editorial": "editorial.html", "Branding": "branding.html", "Headshots": "headshots.html"}
-    def relink(m):
-        block = m.group(0)
-        lab = re.search(r"<figcaption><span>(\w+)</span>", block).group(1)
-        return re.sub(r'href="[^"]*"', f'href="{cat_link[lab]}"', block, count=1)
-    home_main = re.sub(r'<a class="frame[^"]*" href="[^"]*">.*?</a>', relink, home_main, flags=re.S)
-    for name, href in [("Branding", "branding.html"), ("Headshots", "headshots.html"), ("Editorial &amp; Music", "editorial.html")]:
-        home_main = home_main.replace(f"<div><h3>{name}</h3>", f'<div><h3><a href="{href}">{name}</a></h3>')
-    home_main = home_main.replace("A free 15-minute call", "A free call")
-    home_main = home_main.replace(
-        '<div class="hoods">', '<div><a class="btn btn--solid" href="about.html">More about me</a></div>\n        <div class="hoods">', 1)
-    home_main = "<!-- built -->\n" + home_main
-ld = re.search(r'<script type="application/ld\+json">.*?</script>\n', home_src, re.S)
-page("index-v1.html", "GLPX Studio · Orlando Branding &amp; Headshot Photography",
-     "Branding, headshot and editorial photography in Orlando. Studio sessions and on-location shoots across Winter Park, Lake Nona, Downtown Orlando and beyond. Custom quotes for every shoot.",
-     home_main, ld.group(0) if ld else "")
+# Old red homepage backup (index-v1.html) is gitignored; only rebuild it when the file is present,
+# so a fresh clone of the repo can still run the full build.
+if (ROOT / "index-v1.html").exists():
+    home_src = (ROOT / "index-v1.html").read_text()  # old red homepage (backup); live homepage comes from v2.py
+    home_main = re.search(r"<main>(.*?)</main>", home_src, re.S).group(1).strip("\n")
+    if "<!-- built -->" not in home_main:
+        cat_link = {"Editorial": "editorial.html", "Branding": "branding.html", "Headshots": "headshots.html"}
+        def relink(m):
+            block = m.group(0)
+            lab = re.search(r"<figcaption><span>(\w+)</span>", block).group(1)
+            return re.sub(r'href="[^"]*"', f'href="{cat_link[lab]}"', block, count=1)
+        home_main = re.sub(r'<a class="frame[^"]*" href="[^"]*">.*?</a>', relink, home_main, flags=re.S)
+        for name, href in [("Branding", "branding.html"), ("Headshots", "headshots.html"), ("Editorial &amp; Music", "editorial.html")]:
+            home_main = home_main.replace(f"<div><h3>{name}</h3>", f'<div><h3><a href="{href}">{name}</a></h3>')
+        home_main = home_main.replace("A free 15-minute call", "A free call")
+        home_main = home_main.replace(
+            '<div class="hoods">', '<div><a class="btn btn--solid" href="about.html">More about me</a></div>\n        <div class="hoods">', 1)
+        home_main = "<!-- built -->\n" + home_main
+    ld = re.search(r'<script type="application/ld\+json">.*?</script>\n', home_src, re.S)
+    page("index-v1.html", "GLPX Studio · Orlando Branding &amp; Headshot Photography",
+         "Branding, headshot and editorial photography in Orlando. Studio sessions and on-location shoots across Winter Park, Lake Nona, Downtown Orlando and beyond. Custom quotes for every shoot.",
+         home_main, ld.group(0) if ld else "")
 
 # ---------------------------------------------------------------- BRANDING
 br_frames = [
@@ -491,7 +495,7 @@ about = f'''  <section class="page-hero page-hero--cream">
       <div>
         <p>I've been photographing people for more than eight years. That includes album covers for artists like Alex Rose and Anuel AA, as well as headshots for realtors squeezing a session into their lunch break.</p>
         <p>Most people tell me they hate having their picture taken. That's the part I enjoy. I direct the whole session, from where to stand to what to do with your hands, so you can stop thinking about the camera and just show up as yourself.</p>
-        <p>I'm based in Thornton Park and shoot studio sessions in Orlando and on location across the city. Sessions run in English or Spanish.</p>
+        <p>I'm based in Orlando and shoot studio sessions here and on location across the city. Sessions run in English or Spanish.</p>
       </div>
     </div>
   </section>
@@ -547,7 +551,7 @@ contact = f'''  <section class="page-hero page-hero--red">
           <div><dt>Text</dt><dd><a href="sms:+14075347581">Send a text</a></dd></div>
           <div><dt>Email</dt><dd><a href="mailto:glpxstudio@gmail.com">glpxstudio@gmail.com</a></dd></div>
           <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/glpxstudio/" target="_blank" rel="noopener">@glpxstudio</a></dd></div>
-          <div><dt>Based in</dt><dd>Thornton Park, Orlando</dd></div>
+          <div><dt>Based in</dt><dd>Orlando, FL</dd></div>
         </dl>
       </div>
       <figure class="print">
@@ -628,7 +632,7 @@ gallery = f'''  <section class="page-hero page-hero--ink">
     </div>
   </section>
 
-{closer("Loved your <em>photos?</em>", "A quick Google review helps other people find GLPX Studio.")}'''
+{closer("Loved your <em>photos?</em>", "A quick Google review helps other people find GLPX Studio.", ("Leave a Google review", REVIEW_URL))}'''
 page("client-gallery.html", "Client Gallery · GLPX Studio", "Private client photo galleries for GLPX Studio clients.", gallery, '<meta name="robots" content="noindex">\n')
 
 print("built")
