@@ -1,12 +1,12 @@
 """Model casting page: models apply for GLPX test shoots (TFP). HighLevel form embedded.
-Runs from areas.py after the sitemap is written and before finish.py.
-Can also be rendered on its own with `python3 model.py --standalone` (uses booked.html as the shell)."""
+Lives at /model-casting/ (no .html). Runs from areas.py after finish.py; also runs on its own: `python3 model.py`."""
 import sys, re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 FORM_ID = "ZHLlLE5eO3pSZCRm0jCM"
 FORM_URL = f"https://api.leadconnectorhq.com/widget/form/{FORM_ID}"
-FNAME = "model-casting.html"
+SLUG = "model-casting"
+URL = f"https://www.glpxstudio.com/{SLUG}/"
 TITLE = "Model Casting · Test Shoots in Orlando · GLPX Studio"
 DESC = ("Models in Orlando: apply for GLPX Studio test shoots. Trade (TFP) sessions for beauty, editorial, "
         "fashion and commercial looks. Apply once in English or Spanish.")
@@ -82,36 +82,28 @@ body = f'''  <section class="page-hero post-hero">
   </section>'''
 
 
-def build_with_site():
-    from build import page
-    page(FNAME, TITLE, DESC, body, STYLE)
-    sm_path = ROOT / "sitemap.xml"
-    sm = sm_path.read_text()
-    url = f"https://www.glpxstudio.com/{FNAME}"
-    if url not in sm:
-        sm_path.write_text(sm.replace("</urlset>", f"  <url><loc>{url}</loc></url>\n</urlset>"))
-
-
-def build_standalone():
-    """Render using booked.html as the shell (same header, footer and head tags), without the full site build."""
+def build():
+    """Render into model-casting/index.html (clean URL, no .html), using booked.html as the shell
+    so it carries the same header, footer and finish.py head tags. Run after finish.py."""
     shell = (ROOT / "booked.html").read_text()
     html = re.sub(r"<main>.*?</main>", lambda m: f"<main>\n{body}\n</main>", shell, flags=re.S)
     html = html.replace('<meta name="robots" content="noindex">\n', "")
     html = re.sub(r"<title>.*?</title>", f"<title>{TITLE}</title>", html)
     html = re.sub(r'(<meta (?:name="description"|property="og:description") content=")[^"]*"', rf'\g<1>{DESC}"', html)
     html = re.sub(r'(<meta property="og:title" content=")[^"]*"', rf'\g<1>{TITLE}"', html)
-    html = html.replace("https://www.glpxstudio.com/booked.html", f"https://www.glpxstudio.com/{FNAME}")
+    html = html.replace("https://www.glpxstudio.com/booked.html", URL)
     html = html.replace("</head>", STYLE + "</head>", 1)
-    (ROOT / FNAME).write_text(html)
+    # page lives one folder down: point relative links and assets up a level
+    html = re.sub(r'((?:href|src)=")(?!https?:|//|/|#|mailto:|tel:|sms:|\.\./|data:)', r"\g<1>../", html)
+    out = ROOT / SLUG
+    out.mkdir(exist_ok=True)
+    (out / "index.html").write_text(html)
     sm_path = ROOT / "sitemap.xml"
-    sm = sm_path.read_text()
-    url = f"https://www.glpxstudio.com/{FNAME}"
-    if url not in sm:
-        sm_path.write_text(sm.replace("</urlset>", f"  <url><loc>{url}</loc></url>\n</urlset>"))
+    sm = sm_path.read_text().replace(f"  <url><loc>https://www.glpxstudio.com/{SLUG}.html</loc></url>\n", "")
+    if URL not in sm:
+        sm = sm.replace("</urlset>", f"  <url><loc>{URL}</loc></url>\n</urlset>")
+    sm_path.write_text(sm)
 
 
-if "--standalone" in sys.argv:
-    build_standalone()
-else:
-    build_with_site()
+build()
 print("model casting page built")

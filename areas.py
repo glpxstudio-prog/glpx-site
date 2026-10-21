@@ -366,8 +366,8 @@ page("404.html", "Page not found · GLPX Studio", "This page moved or doesn't ex
   </section>''', '<meta name="robots" content="noindex">\n')
 
 import book  # Book a Call page + thank-you page
-import model  # model casting page (HighLevel form)
 import services2  # commercial + corporate/team headshot pages
 import finish  # structured data, social previews, lazy images
+import model  # model casting page at /model-casting/ (HighLevel form)
 import blog  # journal posts, legal pages, redirects from old Pixpa addresses
 import links  # Instagram link-in-bio page at /links
