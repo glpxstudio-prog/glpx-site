@@ -42,8 +42,8 @@ body = f'''  <section class="page-hero post-hero">
       <div class="hero-copy">
         <p class="eyebrow">Model casting · Orlando</p>
         <h1>Shoot with <em>GLPX.</em></h1>
-        <p class="lede">Test shoots for models who want images that actually book work. Clean, high-glamour, skin you can see. Apply once and we'll reach out when a concept fits you.</p>
-        <p class="lede mc-es">Sesiones de prueba para modelos que quieren fotos que consiguen trabajo. Aplica una vez y te escribimos cuando un concepto sea para ti.</p>
+        <p class="lede">Monthly test shoots for models who want images that actually book work. Clean, high-glamour, skin you can see. Apply once and we'll reach out when a month's concept fits you.</p>
+        <p class="lede mc-es">Sesiones de prueba cada mes para modelos que quieren fotos que consiguen trabajo. Aplica una vez y te escribimos cuando el concepto del mes sea para ti.</p>
         <div class="hero-actions"><a class="btn btn--red" href="#apply">Apply now · Aplica</a><a class="btn btn--ghost" href="editorial.html">See the work</a></div>
       </div>
       <div class="mc-strip">
@@ -57,7 +57,7 @@ body = f'''  <section class="page-hero post-hero">
       <div class="section-head"><p class="eyebrow">How it works</p><h2>Three steps. No guesswork.</h2></div>
       <div class="mc-steps">
         <div><span class="num">01</span><h3>Apply</h3><p>Fill out the form with three recent photos. Phone photos are fine.</p></div>
-        <div><span class="num">02</span><h3>Get matched</h3><p>When a concept fits your look, you get a text or email with the date, the look and the Orlando studio or location.</p></div>
+        <div><span class="num">02</span><h3>Get matched</h3><p>Every month there's a new concept. When it fits your look, you get a text or email with the date, the look and the Orlando studio or location.</p></div>
         <div><span class="num">03</span><h3>Shoot</h3><p>Show up ready. Usage and hair and makeup details are confirmed before every shoot. You leave with edited images for your book.</p></div>
       </div>
     </div>
@@ -77,7 +77,7 @@ body = f'''  <section class="page-hero post-hero">
   <section class="section cream">
     <div class="wrap">
       <div class="section-head"><p class="eyebrow">Before you apply</p><h2>Quick answers.</h2></div>
-      <div class="faq"><details><summary>Is it paid?</summary><p>Test shoots are a trade (TFP). No payment either way, and you receive edited images to use in your portfolio.</p></details><details><summary>Do I need experience?</summary><p>No. New faces, working models and agency-signed talent are all welcome. Tell us where you are on the form.</p></details><details><summary>Is hair and makeup provided?</summary><p>It depends on the shoot. You'll know before you confirm, along with the look and the location.</p></details><details><summary>Where are the shoots?</summary><p>In an Orlando studio or on location around the city, depending on the concept.</p></details><details><summary>¿Puedo aplicar en español?</summary><p>Sí. Todo el proceso puede ser en español. Elige tu idioma en el formulario.</p></details><details><summary>How old do I have to be?</summary><p>18 or older. No exceptions.</p></details></div>
+      <div class="faq"><details><summary>How often are the test shoots?</summary><p>Once a month. Your application stays on file, so you can be picked for any month's concept without applying again.</p></details><details><summary>Is it paid?</summary><p>Test shoots are a trade (TFP). No payment either way, and you receive edited images to use in your portfolio.</p></details><details><summary>Do I need experience?</summary><p>No. New faces, working models and agency-signed talent are all welcome. Tell us where you are on the form.</p></details><details><summary>Is hair and makeup provided?</summary><p>It depends on the shoot. You'll know before you confirm, along with the look and the location.</p></details><details><summary>Where are the shoots?</summary><p>In an Orlando studio or on location around the city, depending on the concept.</p></details><details><summary>¿Puedo aplicar en español?</summary><p>Sí. Todo el proceso puede ser en español. Elige tu idioma en el formulario.</p></details><details><summary>How old do I have to be?</summary><p>18 or older. No exceptions.</p></details></div>
     </div>
   </section>'''
 
