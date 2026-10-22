@@ -9,7 +9,7 @@ embed = f'''<div class="cal-wrap">
         <iframe src="{BOOK}" title="Book a free strategy call with GLPX Studio" id="{CAL_ID}_booking" scrolling="no"></iframe>
         <p class="cal-fallback">Calendar not loading? <a href="{BOOK}" target="_blank" rel="noopener noreferrer">Open it in a new tab</a> or text <a href="sms:+14075347581">(407) 534-7581</a>.</p>
       </div>
-      <script src="https://link.msgsend.com/js/form_embed.js" defer></script>'''
+      <script src="https://link.msgsndr.com/js/form_embed.js" defer></script>'''
 
 book = f'''  <section class="page-hero post-hero book-hero">
     <div class="wrap">
