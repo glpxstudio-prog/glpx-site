@@ -8,6 +8,7 @@ REVIEWS = "https://www.google.com/search?q=GLPX+Studio+Orlando#lrd=0xae321d70928
 main_btn = ("Book a free strategy call", "../book.html")
 links = [
     ("See the work", "../portfolio.html", "All four services in one place"),
+    ("Model Casting", "../model-casting/", "Monthly test shoots · Aplica aquí"),
     ("Headshots", "../headshots.html", "Professionals, actors and teams"),
     ("Branding", "../branding.html", "Planned shoots for your brand"),
     ("Editorial &amp; Music", "../editorial.html", "Covers, press kits, beauty, fashion"),
