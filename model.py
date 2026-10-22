@@ -16,14 +16,15 @@ STYLE = '''<style>
 .mc-strip img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
 .mc-es { opacity: .78; font-style: italic; }
 .form-wrap { background: #fff; border: 1px solid #D8CCBF; padding: 8px; }
-.form-wrap iframe { width: 100%; min-height: 2300px; border: 0; display: block; }
+.form-wrap { overflow: hidden; }
+.form-wrap iframe { width: 100%; max-width: 100%; min-height: 1200px; border: 0; display: block; }
 .mc-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); }
 .mc-steps h3 { margin: .2em 0 .4em; }
 .mc-steps .num { font: 400 2.4rem/1 var(--tall); color: var(--act); }
 @media (max-width: 760px) {
   .mc-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .mc-steps { grid-template-columns: 1fr; text-align: center; }
-  .form-wrap iframe { min-height: 2700px; }
+  .form-wrap { padding: 0; border: 0; }
 }
 </style>
 '''
@@ -67,10 +68,10 @@ body = f'''  <section class="page-hero post-hero">
     <div class="wrap">
       <div class="section-head"><p class="eyebrow">Apply · Aplica</p><h2>Join the casting list.</h2><p>Takes about three minutes. 18+ only.</p></div>
       <div class="form-wrap">
-        <iframe src="{FORM_URL}" id="inline-{FORM_ID}" data-layout="{{'id':'INLINE'}}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Model Test Shoot Application" data-layout-iframe-id="inline-{FORM_ID}" data-form-id="{FORM_ID}" title="Model Test Shoot Application"></iframe>
+        <iframe src="{FORM_URL}" scrolling="no" id="inline-{FORM_ID}" data-layout="{{'id':'INLINE'}}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Model Test Shoot Application" data-layout-iframe-id="inline-{FORM_ID}" data-form-id="{FORM_ID}" title="Model Test Shoot Application"></iframe>
         <p class="cal-fallback">Form not loading? <a href="{FORM_URL}" target="_blank" rel="noopener noreferrer">Open it in a new tab</a> or DM <a href="https://www.instagram.com/glpxstudio/" target="_blank" rel="noopener">@glpxstudio</a>.</p>
       </div>
-      <script src="https://link.msgsend.com/js/form_embed.js" defer></script>
+      <script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
     </div>
   </section>
 
