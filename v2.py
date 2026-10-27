@@ -174,7 +174,7 @@ body = f'''  <section class="hero hero--photo v2-trio-hero v2-dark-hero">
     </div>
   </section>'''
 
-head = header("index.html").replace("assets/img/logo-black.png", "assets/img/logo-cream.png")
+head = header("index.html").replace("assets/img/logo-black.svg", "assets/img/logo-white.svg")
 html = f'''<!doctype html>
 <html lang="en">
 <head>

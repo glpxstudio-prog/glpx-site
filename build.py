@@ -19,7 +19,7 @@ def header(current):
     menu = "\n".join(f'          <a href="{h}">{t}</a>' for h, t in [("index.html", "Home")] + NAV)
     return f'''<header class="site-head">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="GLPX Studio home"><img src="assets/img/logo-black.png" alt="GLPX Studio"></a>
+    <a class="logo" href="index.html" aria-label="GLPX Studio home"><img src="assets/img/logo-black.svg" alt="GLPX Studio"></a>
     <nav class="nav" aria-label="Main">
 {links}
       <details class="menu">
@@ -36,7 +36,7 @@ def header(current):
 
 FOOTER = f'''<footer class="site-foot">
   <div class="wrap">
-    <div><img src="assets/img/logo-cream.png" alt="GLPX Studio"></div>
+    <div><img src="assets/img/logo-white.svg" alt="GLPX Studio"></div>
     <div>
       <h4>Explore</h4>
       <ul>{"".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("index.html", "Home")] + NAV + [("corporate-headshots-orlando.html", "Team headshots"), ("commercial-photography-orlando.html", "Commercial"), ("videography-orlando.html", "Video"), ("model-casting/", "Model casting"), ("areas.html", "Areas we serve"), ("blog/index.html", "Journal")])}</ul>
@@ -64,7 +64,7 @@ def closer(title_html, sub=""):
 
 def page(fname, title, desc, body, extra_head=""):
     old = fname == "index-v1.html"
-    head = header(fname) if old else header(fname).replace("assets/img/logo-black.png", "assets/img/logo-cream.png")
+    head = header(fname) if old else header(fname).replace("assets/img/logo-black.svg", "assets/img/logo-white.svg")
     html = f'''<!doctype html>
 <html lang="en">
 <head>
