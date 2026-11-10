@@ -74,7 +74,10 @@ def write_nested(path_rel, title, desc, body, extra_head=""):
     """Build with the shared template, run the final pass, then move into a folder so the old URL works."""
     tmp = ROOT / "_tmp_page.html"
     page(tmp.name, title, desc, body, extra_head)
-    url = SITE + path_rel
+    # These pages are served at a folder URL, so the canonical must carry the
+    # trailing slash. Without it the canonical points at a URL that 301s back
+    # here, and the sitemap (which uses the slash form) disagrees with the page.
+    url = SITE + path_rel.rstrip("/") + "/"
     finish.finish(tmp, url)
     html = tmp.read_text()
     tmp.unlink()
