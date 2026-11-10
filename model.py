@@ -98,6 +98,10 @@ def build():
     html = re.sub(r'((?:href|src)=")(?!https?:|//|/|#|mailto:|tel:|sms:|\.\./|data:)', r"\g<1>../", html)
     out = ROOT / SLUG
     out.mkdir(exist_ok=True)
+    # Built from booked.html, which is deliberately CTA-free, so add the
+    # shared bar here. Done after the relative-link rewrite above.
+    import finish
+    html = finish.add_cta_bar(html, "model-casting/index.html")
     (out / "index.html").write_text(html)
     sm_path = ROOT / "sitemap.xml"
     sm = sm_path.read_text().replace(f"  <url><loc>https://www.glpxstudio.com/{SLUG}.html</loc></url>\n", "")

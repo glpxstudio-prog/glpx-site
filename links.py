@@ -102,5 +102,9 @@ html = f'''<!doctype html>
 '''
 d = ROOT / "links"
 d.mkdir(exist_ok=True)
-(d / "index.html").write_text(html)
+# The mobile CTA bar comes from finish.py so there is one copy of it.
+# finish.py runs its own pass on import; that pass is idempotent, and
+# inside areas.py it has already run, so this import is a no-op there.
+import finish
+(d / "index.html").write_text(finish.add_cta_bar(html, "links/index.html"))
 print("links page built")
