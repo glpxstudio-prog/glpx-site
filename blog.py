@@ -12,6 +12,10 @@ SRC = ROOT / "_blog_src"
 
 # Newest first, same order as the old blog index
 POSTS = [
+    "realtor-headshots-branding-orlando",
+    "team-headshots-orlando-how-it-works",
+    "album-cover-photography-orlando",
+    "social-video-orlando-brands",
     "how-much-do-headshots-cost-orlando",
     "studio-vs-on-location-headshots-orlando",
     "best-places-for-branding-photos-in-orlando",
@@ -28,6 +32,10 @@ POSTS = [
     "15-creative-poses-to-enhance-your-model-photography-portfolio",
 ]
 TOPIC = {  # where each post should send readers next
+    "realtor-headshots-branding-orlando": ("Branding", "branding.html"),
+    "team-headshots-orlando-how-it-works": ("Team headshots", "corporate-headshots-orlando.html"),
+    "album-cover-photography-orlando": ("Editorial", "editorial.html"),
+    "social-video-orlando-brands": ("Video", "videography-orlando.html"),
     "how-much-do-headshots-cost-orlando": ("Headshots", "headshots.html"),
     "studio-vs-on-location-headshots-orlando": ("Team headshots", "corporate-headshots-orlando.html"),
     "best-places-for-branding-photos-in-orlando": ("Branding", "branding.html"),
@@ -68,13 +76,22 @@ def clamp(s, n=155):
     return s[:n].rsplit(" ", 1)[0].rstrip(",;:.") + "…"
 
 
-def excerpt(md, n=28):
+def excerpt(md, n=28, floor=90):
+    """Opening prose, taking as many paragraphs as a usable snippet needs.
+
+    A post that opens with one short punchy line used to produce a 65
+    character description, under the ~70 Google wants, so keep adding
+    paragraphs until there is enough to work with."""
+    out = []
     for para in md.split("\n\n"):
-        p = para.strip()
-        if p and not p.startswith(("#", "-", "|", "*", "1.")):
-            words = re.sub(r"[*_`]", "", p).split()
-            return " ".join(words[:n]) + ("…" if len(words) > n else "")
-    return ""
+        q = para.strip()
+        if not q or q.startswith(("#", "-", "|", "*", "1.")):
+            continue
+        out.append(re.sub(r"[*_`]", "", q))
+        if len(" ".join(out)) >= floor:
+            break
+    words = " ".join(out).split()
+    return " ".join(words[:n]) + ("…" if len(words) > n else "")
 
 
 def write_nested(path_rel, title, desc, body, extra_head=""):
@@ -211,8 +228,12 @@ REDIRECTS = {
     "homepage": "index.html",
     "newsletter": "index.html",
 }
-# Old Pixpa comment pages for each blog post (Search Console shows these as 404)
-for s in POSTS:
+# Old Pixpa comment pages for each blog post (Search Console shows these as 404).
+# Only the posts carried over from Pixpa had one, so new posts are skipped.
+PIXPA_POSTS = [s for s in POSTS if s not in {
+    "realtor-headshots-branding-orlando", "team-headshots-orlando-how-it-works",
+    "album-cover-photography-orlando", "social-video-orlando-brands"}]
+for s in PIXPA_POSTS:
     REDIRECTS[f"blog-post-comments/{s}"] = f"blog/{s}/"
 for old, new in REDIRECTS.items():
     target = SITE + ("" if new == "index.html" else new)
