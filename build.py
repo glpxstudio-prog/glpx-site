@@ -62,7 +62,7 @@ def closer(title_html, sub=""):
   </section>'''
 
 
-def page(fname, title, desc, body, extra_head=""):
+def page(fname, title, desc, body, extra_head="", canonical=None):
     old = fname == "index-v1.html"
     head = header(fname) if old else header(fname).replace("assets/img/logo-black.svg", "assets/img/logo-white.svg")
     html = f'''<!doctype html>
@@ -72,7 +72,7 @@ def page(fname, title, desc, body, extra_head=""):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<link rel="canonical" href="https://www.glpxstudio.com/{'' if fname == 'index.html' else fname}">
+<link rel="canonical" href="{canonical or "https://www.glpxstudio.com/" + ('' if fname == 'index.html' else fname)}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <link rel="preconnect" href="https://fonts.googleapis.com">

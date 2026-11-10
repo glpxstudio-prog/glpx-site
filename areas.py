@@ -3,7 +3,7 @@ Run:  python3 areas.py      (this also re-runs build.py first)"""
 import re, pathlib
 import build
 from build import page, frame, sheet, faq, closer, reviews_section, BOOK, ROOT
-from area_extra import EXTRA
+from area_extra import EXTRA, DEEP
 
 SITE = "https://www.glpxstudio.com/"
 
@@ -197,6 +197,14 @@ def picks(pool, i, n):
 # Low-value combinations: still reachable, but Google is asked to skip them so stronger pages carry more weight
 NOINDEX = {("events", "thornton-park"), ("events", "lake-eola"), ("editorial", "celebration"), ("editorial", "oviedo")}
 
+# "Orlando" is the city, not a neighborhood, so <service>-orlando.html targets the
+# same query as the main service page and loses to it: headshots.html has 85 inbound
+# internal links, headshots-orlando.html has 20. These two were sitting unindexed.
+# Canonical passes their signals to the page that actually ranks; noindex would throw
+# them away. The pages and their inbound links stay, they just stop competing.
+CANONICAL_TO = {("headshots", "orlando"): "headshots.html",
+                ("branding", "orlando"): "branding.html"}
+
 
 def area_page(svc_key, area, i):
     S = SERVICES[svc_key]
@@ -233,6 +241,26 @@ def area_page(svc_key, area, i):
           <li><span>Getting around</span><span>{X["logistics"]}</span></li>
           <li><span>Studio or on location</span><span>Studio sessions take place in a rented studio in Orlando. On location shoots happen right in {a}.</span></li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+'''
+    deep = ""
+    D = DEEP.get((area["slug"], svc_key))
+    if D:
+        paras = "".join(f"<p>{x}</p>\n        " for x in D["paras"])
+        items = "".join(f"<li><span>{n}</span><span>{d}</span></li>" for n, d in D["items"])
+        deep = f'''  <section class="section">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">{S["label"]} in {a}</p>
+        <h2>{D["h2"]}</h2>
+        {paras}
+      </div>
+      <div>
+        <p class="eyebrow">{D["list_label"]}</p>
+        <ul class="ticks spots">{items}</ul>
       </div>
     </div>
   </section>
@@ -280,7 +308,7 @@ def area_page(svc_key, area, i):
     </div>
   </section>
 
-{local}{reviews_section(REV[svc_key], "What clients say.")}
+{local}{deep}{reviews_section(REV[svc_key], "What clients say.")}
   <section class="section cream">
     <div class="wrap">
       <div class="section-head"><p class="eyebrow">Pricing</p><h2>A quote built around your shoot.</h2></div>
@@ -304,7 +332,9 @@ def area_page(svc_key, area, i):
           '"address":{"@type":"PostalAddress","addressLocality":"Orlando","addressRegion":"FL","addressCountry":"US"}}</script>\n')
     desc = f'{S["label"]} photography in {a}, FL by GLPX Studio. {S["lede"].format(a=a).split(". ")[0]}. Book a free strategy call.'
     robots = '<meta name="robots" content="noindex, follow">\n' if (svc_key, area["slug"]) in NOINDEX else ""
-    page(fname(svc_key, area), S["title"].format(a=a) + " · GLPX Studio", desc.replace('"', "'"), body, robots + ld)
+    target = CANONICAL_TO.get((svc_key, area["slug"]))
+    page(fname(svc_key, area), S["title"].format(a=a) + " · GLPX Studio", desc.replace('"', "'"), body,
+         robots + ld, canonical=(SITE + target) if target else None)
 
 
 for i, area in enumerate(AREAS):
@@ -345,7 +375,8 @@ for f, k in strip_for.items():
 
 # ------------------------------------------------------------------ sitemap + robots
 urls = ["", "branding.html", "headshots.html", "editorial.html", "about.html", "contact.html", "areas.html", "book.html", "portfolio.html"]
-urls += [fname(k, a) for a in AREAS for k in ORDER if (k, a["slug"]) not in NOINDEX]
+urls += [fname(k, a) for a in AREAS for k in ORDER
+         if (k, a["slug"]) not in NOINDEX and (k, a["slug"]) not in CANONICAL_TO]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
                                   "".join(f"  <url><loc>{SITE}{u}</loc></url>\n" for u in urls) + "</urlset>\n")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE}sitemap.xml\n")

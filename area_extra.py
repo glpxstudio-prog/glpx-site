@@ -167,3 +167,25 @@ EXTRA.update({
             events="Celebration and the nearby resort area host company events at hotels and venues, with coverage planned around your schedule.",
         )),
 })
+
+# Per (area, service) copy, for a page that needs more than the one svc line.
+# The four service pages for an area otherwise share everything but that line,
+# which is why they read ~60% alike. Add an entry here when a page has to stand
+# on its own in search.
+DEEP = {
+    ("winter-park", "editorial"): dict(
+        h2="What an editorial shoot in Winter Park looks like.",
+        paras=[
+            "Editorial needs a set, not a backdrop. Winter Park has three of them inside a few blocks. The arcades around Rollins read Mediterranean, which suits a softer fashion story. Hannibal Square is brick, iron and narrow sidewalk when the look should be harder. The rose garden in Central Park is where I go when a cover needs color that is not coming from the clothes.",
+            "Most of this work is for musicians, labels and brands, so the deliverables come first. A cover is square and tight. A press shot is horizontal with room for type. A campaign needs six or eight frames that look like they belong to each other. We settle that before anyone picks a location.",
+            "Winter Park is also quiet on a weekday morning, which matters more than people expect. Fewer people in the frame means fewer compromises about where the camera goes.",
+        ],
+        list_label="Looks that work here",
+        items=[
+            ("Soft fashion", "Morning light under the Park Avenue oaks. Minimal styling, long lens, shadow doing most of the work."),
+            ("Classic and expensive", "The Rollins arcades for tailoring, jewelry and anything that needs arches behind it."),
+            ("Harder edge", "Brick and iron around Hannibal Square, shot late, strobe against the ambient."),
+            ("Cover art", "A studio session in Orlando for the controlled frame, then Winter Park exteriors for the rest of the set."),
+        ],
+    ),
+}
