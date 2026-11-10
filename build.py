@@ -39,7 +39,7 @@ FOOTER = f'''<footer class="site-foot">
     <div><img src="assets/img/logo-white.svg" alt="GLPX Studio"></div>
     <div>
       <h4>Explore</h4>
-      <ul>{"".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("index.html", "Home")] + NAV + [("corporate-headshots-orlando.html", "Team headshots"), ("commercial-photography-orlando.html", "Commercial"), ("videography-orlando.html", "Video"), ("model-casting/", "Model casting"), ("areas.html", "Areas we serve"), ("blog/index.html", "Journal")])}</ul>
+      <ul>{"".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("index.html", "Home")] + NAV + [("corporate-headshots-orlando.html", "Team headshots"), ("commercial-photography-orlando.html", "Commercial"), ("videography-orlando.html", "Video"), ("model-casting/", "Model casting"), ("areas.html", "Areas we serve"), ("blog/", "Journal")])}</ul>
     </div>
     <div>
       <h4>Contact</h4>
@@ -62,7 +62,15 @@ def closer(title_html, sub=""):
   </section>'''
 
 
+BRAND = " · GLPX Studio"
+
+
 def page(fname, title, desc, body, extra_head="", canonical=None):
+    # Google truncates the title around 60 characters. When a title is over that,
+    # the brand suffix is the first thing worth losing: it costs 14 characters and
+    # the domain is already shown next to the result.
+    if len(title) > 60 and title.endswith(BRAND):
+        title = title[:-len(BRAND)]
     old = fname == "index-v1.html"
     head = header(fname) if old else header(fname).replace("assets/img/logo-black.svg", "assets/img/logo-white.svg")
     html = f'''<!doctype html>
@@ -260,7 +268,7 @@ branding = f'''  <section class="page-hero page-hero--red">
 
 {closer("Let's plan your <em>brand</em> shoot.")}'''
 page("branding.html", "Branding Photography in Orlando · GLPX Studio",
-     "Personal branding photography in Orlando for founders, realtors, lawyers and coaches. Starter and Signature branding packages, quoted to fit your shoot. Studio and on-location.", branding)
+     "Personal branding photography in Orlando for founders, realtors, lawyers and coaches. One planned shoot for your site, LinkedIn and Instagram. Custom quotes.", branding)
 
 # ---------------------------------------------------------------- HEADSHOTS
 hs_frames = [
@@ -532,7 +540,7 @@ about = f'''  <section class="page-hero page-hero--cream">
 
 {closer("Let's make <em>something</em> together.")}'''
 page("about.html", "About Gerson Lopez · GLPX Studio",
-     "Gerson Lopez is an Orlando photographer with 8+ years behind the camera and album credits with Alex Rose and Anuel AA. Branding, headshots and editorial in English and Spanish.", about)
+     "Gerson Lopez is an Orlando photographer with 8+ years behind the camera and album credits with Alex Rose and Anuel AA. Branding, headshots and editorial.", about)
 
 # ---------------------------------------------------------------- CONTACT
 contact = f'''  <section class="page-hero page-hero--red">

@@ -129,6 +129,7 @@ SERVICES = dict(
         file="branding-photography-{s}.html", title="Branding Photographer in {a}, FL", h1="Branding photos in <em>{a}.</em>",
         eyebrow="Branding photography", hero="page-hero--red", main="branding.html", label="Branding",
         lede="One planned shoot for your website, LinkedIn and Instagram, photographed in {a} or in an Orlando studio. We decide the shots first so every frame has a job.",
+        meta="Branding photography in {a}, FL by GLPX Studio. One planned shoot for your website, LinkedIn and Instagram. Book a free call.",
         pool=["br-pinkcoat", "br-steps", "br-bw-woman", "br-blacksuit", "br-bw-man", "br-street", "br-director", "br-lagom", "br-tennis", "br-lashes"],
         caption="Branding",
         pricing='''<div class="price-row">
@@ -144,6 +145,7 @@ SERVICES = dict(
         file="headshots-{s}.html", title="Headshot Photographer in {a}, FL", h1="Headshots in <em>{a}.</em>",
         eyebrow="Headshot photography", hero="page-hero--ink", main="headshots.html", label="Headshots",
         lede="Professional headshots for actors, professionals and teams in {a}. Guided posing, flattering light and retouching, in an Orlando studio or at your office.",
+        meta="Headshot photography in {a}, FL by GLPX Studio. Studio or on site, guided posing, retouched finals. Book a free call.",
         pool=["hs-tesoro", "hs-17", "hs-03", "hs-yamil", "hs-18", "hs-green", "hs-redtop", "hs-16", "hs-19", "hs-navytop", "hs-10", "br-curlyman", "hs-01"],
         caption="Headshots",
         pricing='''<div class="split" style="gap:32px">
@@ -157,6 +159,7 @@ SERVICES = dict(
         file="editorial-photography-{s}.html", title="Editorial & Music Photographer in {a}, FL", h1="Editorial & music photos in <em>{a}.</em>",
         eyebrow="Editorial · music · beauty", hero="page-hero--black", main="editorial.html", label="Editorial & Music",
         lede="Album covers, press photos, beauty and fashion stories for artists and brands in {a}. Album credits include Alex Rose and Anuel AA.",
+        meta="Editorial and music photography in {a}, FL by GLPX Studio. Album covers, press photos and campaigns for artists. Book a free call.",
         pool=["ed-alexrose", "ed-01", "ed-greensuit", "ed-08", "ed-12", "ed-hero", "ed-navy", "ed-09", "ed-11", "ed-10", "ed-18", "ed-05", "ed-19", "ed-07", "ed-15", "ed-lily"],
         caption="Editorial",
         pricing='''<div class="price-row">
@@ -170,6 +173,7 @@ SERVICES = dict(
         file="corporate-event-photography-{s}.html", title="Corporate Event Photographer in {a}, FL", h1="Corporate event photos in <em>{a}.</em>",
         eyebrow="Corporate event photography", hero="page-hero--cream", main="contact.html", label="Corporate Events",
         lede="Conferences, company parties, launches and team days in {a}, covered by a bilingual photographer who knows how to work a room without getting in the way.",
+        meta="Corporate event photography in {a}, FL by GLPX Studio. Conferences, parties and launches, covered without getting in the way. Book a free call.",
         pool=["ev-a04", "ev-h10", "ev-a12", "ev-h08", "ev-a16", "ev-h12", "ev-a05", "ev-h06", "ev-a03", "ev-h05", "ev-a10", "ev-a09"],
         heroes=["ev-a09", "ev-h10"],
         caption="Event coverage",
@@ -330,7 +334,11 @@ def area_page(svc_key, area, i):
           f'"url":"{SITE}{fname(svc_key, area)}","telephone":"+1-407-534-7581","email":"glpxstudio@gmail.com",'
           f'"areaServed":"{a}, FL","serviceType":"{S["label"]} photography",'
           '"address":{"@type":"PostalAddress","addressLocality":"Orlando","addressRegion":"FL","addressCountry":"US"}}</script>\n')
-    desc = f'{S["label"]} photography in {a}, FL by GLPX Studio. {S["lede"].format(a=a).split(". ")[0]}. Book a free strategy call.'
+    # Was built by splitting the lede on ". ", which returned the whole sentence
+    # including its period when the lede held only one, so every corporate event
+    # page shipped a double period into its search snippet. Hand-written now.
+    desc = S["meta"].format(a=a)
+    assert len(desc) <= 160, f"meta description too long ({len(desc)}): {desc}"
     robots = '<meta name="robots" content="noindex, follow">\n' if (svc_key, area["slug"]) in NOINDEX else ""
     target = CANONICAL_TO.get((svc_key, area["slug"]))
     page(fname(svc_key, area), S["title"].format(a=a) + " · GLPX Studio", desc.replace('"', "'"), body,

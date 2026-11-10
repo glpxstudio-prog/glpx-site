@@ -8,8 +8,8 @@ FORM_URL = f"https://api.leadconnectorhq.com/widget/form/{FORM_ID}"
 SLUG = "model-casting"
 URL = f"https://www.glpxstudio.com/{SLUG}/"
 TITLE = "Model Casting · Test Shoots in Orlando · GLPX Studio"
-DESC = ("Models in Orlando: apply for GLPX Studio test shoots. Trade (TFP) sessions for beauty, editorial, "
-        "fashion and commercial looks. Apply once in English or Spanish.")
+DESC = ("Models in Orlando: apply for GLPX Studio test shoots. Trade sessions for beauty, editorial, "
+        "fashion and commercial looks. Apply in English or Spanish.")
 
 STYLE = '''<style>
 .mc-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: clamp(24px, 4vw, 40px); }

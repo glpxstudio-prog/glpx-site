@@ -38,7 +38,7 @@ Sometimes a backdrop is too formal. Shooting outside or in your own space gives 
 - Personal brands that need a headshot plus lifestyle images
 - Founders who want their business in the background
 
-Shade is your friend in Florida. Early morning and the hour before sunset give the softest light. For location ideas, read [the best places for branding photos in Orlando](blog/best-places-for-branding-photos-in-orlando/index.html).
+Shade is your friend in Florida. Early morning and the hour before sunset give the softest light. For location ideas, read [the best places for branding photos in Orlando](blog/best-places-for-branding-photos-in-orlando/).
 
 ## Quick way to decide
 

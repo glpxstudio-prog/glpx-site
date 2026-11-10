@@ -13,7 +13,7 @@ One outfit on one backdrop is the simplest session. Actors often want a commerci
 
 ## 3. Studio or on location
 
-For studio sessions I book a professional studio in Orlando, which is part of the cost of the session. On site headshots at your office mean I bring the lights and backdrop to you, which saves your team travel time. Read more in [studio vs on location headshots](blog/studio-vs-on-location-headshots-orlando/index.html).
+For studio sessions I book a professional studio in Orlando, which is part of the cost of the session. On site headshots at your office mean I bring the lights and backdrop to you, which saves your team travel time. Read more in [studio vs on location headshots](blog/studio-vs-on-location-headshots-orlando/).
 
 ## 4. How many retouched images
 

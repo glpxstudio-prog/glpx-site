@@ -130,7 +130,7 @@ commercial = f'''  <section class="page-hero page-hero--ink">
 {closer("Let's plan your <em>campaign.</em>", "Tell me where the photos will run. We'll build the shoot around it.")}'''
 
 page("commercial-photography-orlando.html", "Commercial Photographer in Orlando, FL · GLPX Studio",
-     "Commercial photography in Orlando for local brands, salons, clinics and startups. Website, ad and campaign images of your team and business, in studio or on location. Custom quotes.",
+     "Commercial photography in Orlando for local brands, salons, clinics and startups. Website, ad and campaign images, in studio or on location. Custom quotes.",
      commercial)
 
 # ------------------------------------------------------------------ CORPORATE / TEAM / LINKEDIN HEADSHOTS
@@ -249,7 +249,7 @@ corporate = f'''  <section class="page-hero page-hero--black">
         ("Can you come to our office?", "Yes. I bring lights and a backdrop and set up in a conference room or a quiet corner. It usually needs less space than people expect."),
         ("How long does each person take?", "Just a few minutes in front of the camera. We schedule people in short slots so nobody loses half a day of work."),
         ("What if someone misses the shoot or we hire later?", "We can photograph them later with the same backdrop, light and crop, so every headshot on your site still matches."),
-        ("What should everyone wear?", "Solid colors and a jacket or blazer that fits. I will send a short wardrobe guide to share with the team before the shoot. More tips in <a href='blog/what-to-wear-for-headshots-orlando/index.html'>what to wear for headshots</a>."),
+        ("What should everyone wear?", "Solid colors and a jacket or blazer that fits. I will send a short wardrobe guide to share with the team before the shoot. More tips in <a href='blog/what-to-wear-for-headshots-orlando/'>what to wear for headshots</a>."),
         ("Do you also do individual headshots?", "Yes. Solo corporate and LinkedIn headshots are shot in an Orlando studio. See <a href='headshots.html'>headshot photography</a> for actors and professionals."),
       ])}
     </div>
@@ -258,7 +258,7 @@ corporate = f'''  <section class="page-hero page-hero--black">
 {closer("Make the <em>whole team</em> look good.", "Headshots for 2 people or 50. Quoted within 24 hours.")}'''
 
 page("corporate-headshots-orlando.html", "Corporate &amp; Team Headshots in Orlando, FL · GLPX Studio",
-     "Corporate, team and LinkedIn headshots in Orlando. On-site at your office or in a studio, with one consistent look for the whole team. Custom quotes within 24 hours.",
+     "Corporate, team and LinkedIn headshots in Orlando. On site at your office or in a studio, one consistent look for the whole team. Custom quotes.",
      corporate)
 
 # ------------------------------------------------------------------ VIDEO
@@ -374,8 +374,8 @@ video = f'''  <section class="page-hero page-hero--red">
 
 {closer("Let's get you <em>on camera.</em>", "Social content, brand videos and event coverage across Orlando.")}'''
 
-page("videography-orlando.html", "Videographer in Orlando, FL · Social, Brand &amp; Event Video · GLPX Studio",
-     "Orlando videographer for social media content, brand and business videos, and event recaps. Phone-shot Reels and TikToks, plus photo and video on the same day. Custom quotes.",
+page("videography-orlando.html", "Videographer in Orlando, FL · Brand &amp; Event Video · GLPX Studio",
+     "Orlando videographer for social content, brand videos and event recaps. Reels and TikToks, plus photo and video on the same day. Custom quotes.",
      video)
 
 # ------------------------------------------------------------------ cross-links from existing pages

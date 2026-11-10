@@ -11,7 +11,7 @@ A headshot for a law firm website and a headshot for an acting submission are no
 - **Real estate and sales:** approachable but polished. A blazer over a simple top, or a crisp shirt without a jacket.
 - **Healthcare:** your white coat or scrubs work, but bring a second look without them for LinkedIn.
 - **Creatives and founders:** you have more room. A great sweater or a simple tee can say more about you than a suit.
-- **Actors:** keep it simple and true to the roles you go out for. More on that in my guide to [actor headshots in Orlando](blog/actor-headshots-orlando-commercial-vs-theatrical/index.html).
+- **Actors:** keep it simple and true to the roles you go out for. More on that in my guide to [actor headshots in Orlando](blog/actor-headshots-orlando-commercial-vs-theatrical/).
 
 ## Colors that work on camera
 

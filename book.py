@@ -131,6 +131,6 @@ portfolio = f'''  <section class="page-hero post-hero">
       </div>
     </div>
   </section>'''
-page("portfolio.html", "Portfolio · Branding, Headshot, Editorial &amp; Event Photography · GLPX Studio",
+page("portfolio.html", "Portfolio · Branding, Headshot &amp; Editorial Photography · GLPX Studio",
      "See GLPX Studio's work in Orlando: branding photography, headshots, editorial and music, and corporate events. Pick a service to view recent sessions.", portfolio)
 print("portfolio built")

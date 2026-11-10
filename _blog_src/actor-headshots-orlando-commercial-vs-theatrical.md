@@ -27,7 +27,7 @@ We can shoot both in one session by changing your wardrobe, the backdrop and the
 - No logos, no busy patterns, minimal jewelry
 - Something that hints at your type without becoming a costume
 
-Bring several tops so we can switch between your commercial and theatrical looks. For more ideas, see [what to wear for your headshots](blog/what-to-wear-for-headshots-orlando/index.html).
+Bring several tops so we can switch between your commercial and theatrical looks. For more ideas, see [what to wear for your headshots](blog/what-to-wear-for-headshots-orlando/).
 
 ## During the session
 

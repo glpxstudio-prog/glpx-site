@@ -61,6 +61,13 @@ def to_html(md):
     return out
 
 
+def clamp(s, n=155):
+    """Trim to n characters on a word boundary. Google cuts the snippet near 160."""
+    if len(s) <= n:
+        return s
+    return s[:n].rsplit(" ", 1)[0].rstrip(",;:.") + "…"
+
+
 def excerpt(md, n=28):
     for para in md.split("\n\n"):
         p = para.strip()
@@ -105,14 +112,14 @@ def article_ld(title, date, desc, url):
 index_rows = []
 for i, slug in enumerate(POSTS):
     title, date, md = read(slug)
-    desc = H.escape(excerpt(md, 26).replace('"', "'"), quote=True)
+    desc = H.escape(clamp(excerpt(md, 26)).replace('"', "'"), quote=True)
     topic, topic_href = TOPIC[slug]
     nxt = POSTS[(i + 1) % len(POSTS)]
     nxt_title = read(nxt)[0]
     body = f'''  <section class="page-hero post-hero">
     <div class="wrap">
       <div class="hero-copy">
-        <p class="eyebrow"><a href="blog/index.html">Journal</a> · {date}</p>
+        <p class="eyebrow"><a href="blog/">Journal</a> · {date}</p>
         <h1>{title}</h1>
         <p class="post-by">By Gerson Lopez · GLPX Studio, Orlando FL</p>
       </div>
@@ -137,8 +144,8 @@ for i, slug in enumerate(POSTS):
   <section class="section cream">
     <div class="wrap post-next">
       <p class="eyebrow">Next in the journal</p>
-      <h2><a href="blog/{nxt}/index.html">{nxt_title}</a></h2>
-      <p><a href="blog/index.html">All posts →</a></p>
+      <h2><a href="blog/{nxt}/">{nxt_title}</a></h2>
+      <p><a href="blog/">All posts →</a></p>
     </div>
   </section>
 
@@ -146,7 +153,7 @@ for i, slug in enumerate(POSTS):
     url = f"{SITE}blog/{slug}/"
     write_nested(f"blog/{slug}", f"{title} · GLPX Studio", desc, body,
                  '<meta property="og:type" content="article">\n' + article_ld(title, date, desc, url))
-    index_rows.append(f'''      <a class="post-row" href="blog/{slug}/index.html">
+    index_rows.append(f'''      <a class="post-row" href="blog/{slug}/">
         <span class="kicker">{date}</span>
         <h3>{title}</h3>
         <p>{excerpt(md, 30)}</p>

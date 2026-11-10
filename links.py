@@ -15,7 +15,7 @@ links = [
     ("Corporate Events", "../corporate-event-photography-orlando.html", "English &amp; Español coverage"),
     ("Video", "../videography-orlando.html", "Reels, brand videos, event recaps"),
     ("Client Gallery", "https://gallery.glpxstudio.com", "Already shot with me? Your photos are here"),
-    ("Journal", "../blog/index.html", "Guides: what to wear, where to shoot"),
+    ("Journal", "../blog/", "Guides: what to wear, where to shoot"),
     ("About Gerson", "../about.html", "8+ years behind the camera"),
     ("Google reviews · 5.0 ★", REVIEWS, "What clients say"),
 ]
