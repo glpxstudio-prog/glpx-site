@@ -174,8 +174,8 @@ SERVICES = dict(
         eyebrow="Corporate event photography", hero="page-hero--cream", main="contact.html", label="Corporate Events",
         lede="Conferences, company parties, launches and team days in {a}, covered by a bilingual photographer who knows how to work a room without getting in the way.",
         meta="Corporate event photography in {a}, FL by GLPX Studio. Conferences, parties and launches, covered without getting in the way. Book a free call.",
-        pool=["ev-a04", "ev-h10", "ev-a12", "ev-h08", "ev-a16", "ev-h12", "ev-a05", "ev-h06", "ev-a03", "ev-h05", "ev-a10", "ev-a09"],
-        heroes=["ev-a09", "ev-h10"],
+        pool=["ev-lcda-14", "ev-lcda-07", "ev-h10", "ev-lcda-05", "ev-lcda-04", "ev-lcda-09", "ev-a04", "ev-lcda-03", "ev-lcda-11", "ev-lcda-12", "ev-a12", "ev-lcda-08", "ev-lcda-10", "ev-h12"],
+        heroes=["ev-lcda-01", "ev-lcda-02"],
         caption="Event coverage",
         pricing='''<div class="price-row">
           <article class="price"><h3>Half Day</h3><ul><li>Up to 5 hours of coverage</li><li>Speakers, crowd, details and candids</li><li>Edits added per image</li></ul></article>
