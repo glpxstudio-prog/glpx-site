@@ -17,7 +17,7 @@ services = [
     ("01", "Branding", "br-director", "A planned shoot built around how you sell. Outfits, locations and a shot list for your website, LinkedIn and Instagram, all done in one session.", "Investment · custom quote", "branding.html"),
     ("02", "Headshots", "hs-tesoro", "A clean, current headshot that looks like you on a good day. Guided posing and retouching for actors, professionals and whole teams.", "Investment · custom quote", "headshots.html"),
     ("03", "Editorial &amp; Music", "ed-greensuit", "Album covers, press kits, beauty and fashion stories. Half day and full day productions with as much creative direction as you want.", "Investment · custom quote", "editorial.html"),
-    ("04", "Corporate Events", "ev-a04", "Conferences, launches and company parties covered in English and Spanish, with on site team headshots if you need them.", "Investment · custom quote", "corporate-event-photography-orlando.html"),
+    ("04", "Corporate Events", "ev-lcda-home", "Conferences, launches and company parties covered in English and Spanish, with on site team headshots if you need them.", "Investment · custom quote", "corporate-event-photography-orlando.html"),
 ]
 svc_html = "\n".join(f'''    <div class="v2-svc">
       <div class="v2-svc-img"><img src="assets/img/{img}.jpg" alt="{name} photo by GLPX Studio"></div>
