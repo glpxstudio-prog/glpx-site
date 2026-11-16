@@ -12,6 +12,11 @@ SRC = ROOT / "_blog_src"
 
 # Newest first, same order as the old blog index
 POSTS = [
+    "how-often-update-brand-photos",
+    "product-photography-small-business-orlando",
+    "holiday-party-photography-orlando",
+    "prepare-for-branding-photoshoot",
+    "branding-photography-cost-orlando",
     "realtor-headshots-branding-orlando",
     "team-headshots-orlando-how-it-works",
     "album-cover-photography-orlando",
@@ -32,6 +37,11 @@ POSTS = [
     "15-creative-poses-to-enhance-your-model-photography-portfolio",
 ]
 TOPIC = {  # where each post should send readers next
+    "how-often-update-brand-photos": ("Branding", "branding.html"),
+    "product-photography-small-business-orlando": ("Commercial", "commercial-photography-orlando.html"),
+    "holiday-party-photography-orlando": ("Corporate event", "corporate-event-photography-orlando.html"),
+    "prepare-for-branding-photoshoot": ("Branding", "branding.html"),
+    "branding-photography-cost-orlando": ("Branding", "branding.html"),
     "realtor-headshots-branding-orlando": ("Branding", "branding.html"),
     "team-headshots-orlando-how-it-works": ("Team headshots", "corporate-headshots-orlando.html"),
     "album-cover-photography-orlando": ("Editorial", "editorial.html"),
@@ -232,7 +242,8 @@ REDIRECTS = {
 # Only the posts carried over from Pixpa had one, so new posts are skipped.
 PIXPA_POSTS = [s for s in POSTS if s not in {
     "realtor-headshots-branding-orlando", "team-headshots-orlando-how-it-works",
-    "album-cover-photography-orlando", "social-video-orlando-brands"}]
+    "album-cover-photography-orlando", "social-video-orlando-brands",
+    "how-often-update-brand-photos", "product-photography-small-business-orlando", "holiday-party-photography-orlando", "prepare-for-branding-photoshoot", "branding-photography-cost-orlando"}]
 for s in PIXPA_POSTS:
     REDIRECTS[f"blog-post-comments/{s}"] = f"blog/{s}/"
 for old, new in REDIRECTS.items():
