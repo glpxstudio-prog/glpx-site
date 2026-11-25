@@ -1,57 +1,85 @@
-# Realtor Headshots and Branding in Orlando
-date: Nov 09, 2026
+# Realtor Headshots in Orlando: Photos That Win Listings
+date: Nov 25, 2026
 
-Your headshot works harder than almost any other photo you own. It sits on a yard sign, a listing postcard, your Zillow profile, your email signature and the side of a bus bench. Most professional photos get looked at once. Yours gets looked at by someone deciding whether to hand you the biggest financial decision of their life.
+In real estate, your photo arrives before you do. A strong realtor headshot shows someone trustworthy, approachable and current, with clean light, a background that fits your brand or brokerage and an expression that makes people want to call. At GLPX Studio in Orlando, I create headshots and branding photos for agents who want to look equally professional on their yard sign, their Zillow profile and Instagram.
 
-That changes how we shoot it.
+Here is what to know before your session.
 
-## The yard sign test
+## Why does a realtor's photo matter so much?
 
-A realtor headshot has to survive two extremes. Printed four inches wide on a sign that people drive past at 40 miles an hour, and cropped into a circle the size of a thumbnail on a phone.
+Buying or selling a home is one of the biggest decisions a family makes. Before they call you, people search your name, look at your photo and decide whether you feel trustworthy. Your headshot shows up on yard signs, business cards, ads, your brokerage profile, Realtor.com, Zillow and every social post.
 
-Both of those kill a busy photo. Fussy backgrounds disappear into mush at small sizes. Low contrast washes out in print. A wide smile with your chin tucked reads friendly at full size and strange at thumbnail size.
+If that photo is seven years old, clients feel a small disconnect when they meet you. In a market as competitive as Orlando, Kissimmee and Lake Nona, small details add up.
 
-So we shoot tighter than most people expect, with clean separation between you and the background, and we check the crop on a phone before we move on.
+## Where will you use your photos?
 
-## Look like you, not like 2019
+Make a list before the session. Each use needs a different format:
 
-The most common problem I see is not a bad photo. It is an old one.
+- **Signs and cards:** vertical, clean background, strong contrast for print.
+- **Portal and brokerage profiles:** square crop, face centered.
+- **Social media:** more relaxed, half or full body, with room for text.
+- **Website and ads:** horizontal, with space on one side for headlines.
 
-If your hair is different, your glasses are different, or you have changed shape since the shoot, the photo is costing you trust before you open your mouth. Clients notice at the door. Update every two years, and sooner if anything about your look has changed.
+Plan it on the strategy call and you leave one session with everything you need.
 
-## What to bring
+## Studio backdrop or outdoors?
 
-- **A jacket or blazer that actually fits.** Fit matters more than price. Bring two if you are unsure.
-- **One formal, one relaxed.** The suit works for the sign and the brokerage page. The open collar works for Instagram and your newsletter.
-- **Solid colors.** Patterns buzz at small sizes. Mid tones and jewel tones hold up best.
-- **Nothing brand new.** Stiff collars and visible creases photograph badly. Wear it once first.
+**Studio:** full control of the light, consistent results and easy to cut out for print. Check whether your brokerage has a backdrop color guideline before you choose.
 
-More on this in [what to wear for headshots in Orlando](blog/what-to-wear-for-headshots-orlando/).
+**Outdoors:** a Winter Park street, a Lake Nona neighborhood or the Downtown Orlando skyline tells people where you work. Great for social and your website.
 
-## Where we shoot
+Many agents do both: a classic studio headshot for official use and lifestyle photos outdoors for content. To compare both, see [studio or on location](blog/studio-vs-on-location-headshots-orlando/).
 
-For a clean, consistent look I book a studio in Orlando. Controlled light, no weather, no strangers in frame, and every image in the set matches.
+## What should a realtor wear for headshots?
 
-On location is the better call when you want the neighborhood in the story. Winter Park brick and oaks for an upscale, established feel. Baldwin Park for bright and family oriented. Lake Nona if your clients are in medical or tech. Thornton Park and Lake Eola for downtown energy. Many agents do both halves in one session.
+- What you would wear to an important client meeting, at your best.
+- Solid colors that flatter your skin tone. A color from your personal brand or brokerage helps people recognize you.
+- A blazer adds structure. Bring one look with and one without.
+- Skip big logos, tiny patterns and accessories that steal attention.
 
-## Branding photos, not just a headshot
+More detail in [what to wear for headshots](blog/what-to-wear-for-headshots-orlando/).
 
-A headshot answers "who is this person". Branding photos answer "what is it like to work with them". If you post more than once a week, you need the second kind.
+## Beyond the headshot: branding photos for realtors
 
-A branding session for an agent usually covers you at a listing, you with a client, you on the phone, a few vertical frames with room for text, and some detail shots of a sign, keys or a contract. One session, planned around where the photos will actually be posted. That is the difference between a folder of photos and a month of content.
+One headshot cannot carry a year of posting. A realtor branding session can include:
 
-See [branding photography](branding.html) for how those sessions are built, or [branding photos vs headshots](blog/branding-photos-vs-headshots/) if you are not sure which one you need.
+- Handing over keys or reviewing documents.
+- In front of a property or in your farm area.
+- In your car or walking, for Stories and Reels.
+- With your team, if you work in a group.
 
-## Teams and brokerages
+With an image bank like that, your social feeds stay consistent and professional for months. See how it works on [branding photography](branding.html).
 
-If you run a team, consistency is the whole game. Twenty agents photographed on different days by different people makes your roster page look like a collage.
+## How often should realtors update their headshots?
 
-One session, one setup, one editing pass, and every agent matches. New agents get added later against the same backdrop so nothing drifts. Read [team headshots in Orlando](blog/team-headshots-orlando-how-it-works/) for how a group session runs.
+Every two to three years, or sooner if you changed your look, brokerage or brand colors. The rule is simple: your photo should look like the person who shows up to the appointment.
 
-## Working with me
+## Why bilingual realtors choose GLPX Studio
 
-Sessions and calls run in English or Spanish, which matters in this market more than people admit.
+I'm Gerson Lopez, with 8+ years of photography and video experience, and I work in English and Spanish. If you serve Latino buyers in Central Florida, your photos and content should speak to them too, and that starts with a session where you feel comfortable and well directed. Grace N, a realtor who booked a branding shoot for her real estate business, called me "very professional and very attentive to every detail" in her review.
 
-Every shoot is quoted after a short call, built around how many people, how many looks and where we are shooting. Nothing off a list.
+**Takeaway:** before your session, write down the five places your photo appears most. That list decides the formats, background and wardrobe.
 
-[Book a free strategy call](book.html) and tell me what you need the photos to do. You can see recent work on the [headshots page](headshots.html).
+## FAQs
+
+### How much do realtor headshots cost in Orlando?
+
+Every session is quoted after a free strategy call, based on how many looks, locations and images you need. Studio rental is billed separately. See [how much headshots cost in Orlando](blog/how-much-do-headshots-cost-orlando/).
+
+### Can you shoot at my office or brokerage?
+
+Yes, including team sessions for brokerages. A travel fee applies beyond 30 miles from Orlando.
+
+### What background should I use?
+
+Follow your brokerage guideline if there is one. If not, clean gray or white works for print and an outdoor setting works for social.
+
+### Can I use the photos in paid ads?
+
+Photos come with a license for branding, social, web and print use once paid in full. For broader commercial use, ask on your strategy call.
+
+### When do I get my photos?
+
+Edited images arrive in about 2 to 3 weeks. Starter Branding is delivered in about 2 weeks and Signature Branding in about 3. [Leer en español](blog/fotos-para-realtors-orlando/).
+
+Polishing your online profile too? Read [LinkedIn headshots in Orlando](blog/linkedin-headshots-orlando/). Ready? [Book a free strategy call](book.html) and plan photos that get you the first call.

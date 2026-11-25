@@ -12,17 +12,24 @@ SRC = ROOT / "_blog_src"
 
 # Newest first, same order as the old blog index
 POSTS = [
+    "linkedin-headshots-orlando",
+    "foto-perfil-linkedin",
+    "team-headshots-orlando-how-it-works",
+    "fotos-corporativas-equipo-orlando",
+    "realtor-headshots-branding-orlando",
+    "fotos-para-realtors-orlando",
+    "music-release-content-plan",
+    "contenido-lanzamiento-musical",
+    "studio-vs-on-location-headshots-orlando",
+    "sesion-estudio-o-exteriores",
     "how-often-update-brand-photos",
     "product-photography-small-business-orlando",
     "holiday-party-photography-orlando",
     "prepare-for-branding-photoshoot",
     "branding-photography-cost-orlando",
-    "realtor-headshots-branding-orlando",
-    "team-headshots-orlando-how-it-works",
     "album-cover-photography-orlando",
     "social-video-orlando-brands",
     "how-much-do-headshots-cost-orlando",
-    "studio-vs-on-location-headshots-orlando",
     "best-places-for-branding-photos-in-orlando",
     "branding-photos-vs-headshots",
     "what-to-wear-for-headshots-orlando",
@@ -37,6 +44,13 @@ POSTS = [
     "15-creative-poses-to-enhance-your-model-photography-portfolio",
 ]
 TOPIC = {  # where each post should send readers next
+    "linkedin-headshots-orlando": ('Headshots', 'headshots.html'),
+    "foto-perfil-linkedin": ('Headshots', 'headshots.html'),
+    "fotos-corporativas-equipo-orlando": ('Team headshots', 'corporate-headshots-orlando.html'),
+    "fotos-para-realtors-orlando": ('Branding', 'branding.html'),
+    "music-release-content-plan": ('Editorial', 'editorial.html'),
+    "contenido-lanzamiento-musical": ('Editorial', 'editorial.html'),
+    "sesion-estudio-o-exteriores": ('Branding', 'branding.html'),
     "how-often-update-brand-photos": ("Branding", "branding.html"),
     "product-photography-small-business-orlando": ("Commercial", "commercial-photography-orlando.html"),
     "holiday-party-photography-orlando": ("Corporate event", "corporate-event-photography-orlando.html"),
@@ -47,7 +61,7 @@ TOPIC = {  # where each post should send readers next
     "album-cover-photography-orlando": ("Editorial", "editorial.html"),
     "social-video-orlando-brands": ("Video", "videography-orlando.html"),
     "how-much-do-headshots-cost-orlando": ("Headshots", "headshots.html"),
-    "studio-vs-on-location-headshots-orlando": ("Team headshots", "corporate-headshots-orlando.html"),
+    "studio-vs-on-location-headshots-orlando": ("Branding", "branding.html"),
     "best-places-for-branding-photos-in-orlando": ("Branding", "branding.html"),
     "branding-photos-vs-headshots": ("Branding", "branding.html"),
     "what-to-wear-for-headshots-orlando": ("Headshots", "headshots.html"),
@@ -61,6 +75,27 @@ TOPIC = {  # where each post should send readers next
     "why-professional-photography-matters-for-your-brand": ("Branding", "branding.html"),
     "15-creative-poses-to-enhance-your-model-photography-portfolio": ("Editorial", "editorial.html"),
 }
+# Spanish posts and their English pair (hreflang). Spanish pages get lang="es" and Spanish page chrome.
+ES = {
+    "fotos-corporativas-equipo-orlando": "team-headshots-orlando-how-it-works",
+    "foto-perfil-linkedin": "linkedin-headshots-orlando",
+    "fotos-para-realtors-orlando": "realtor-headshots-branding-orlando",
+    "contenido-lanzamiento-musical": "music-release-content-plan",
+    "sesion-estudio-o-exteriores": "studio-vs-on-location-headshots-orlando",
+}
+EN_OF = {v: k for k, v in ES.items()}
+
+
+def hreflang(slug):
+    en = ES.get(slug, slug)
+    es = EN_OF.get(slug, slug if slug in ES else None)
+    if not es:
+        return ""
+    return (f'<link rel="alternate" hreflang="en" href="{SITE}blog/{en}/">\n'
+            f'<link rel="alternate" hreflang="es" href="{SITE}blog/{es}/">\n'
+            f'<link rel="alternate" hreflang="x-default" href="{SITE}blog/{en}/">\n')
+
+
 REL = re.compile(r'((?:href|src)=")(?!https?:|mailto:|tel:|sms:|#|/|data:)')
 
 
@@ -141,14 +176,22 @@ for i, slug in enumerate(POSTS):
     title, date, md = read(slug)
     desc = H.escape(clamp(excerpt(md, 26)).replace('"', "'"), quote=True)
     topic, topic_href = TOPIC[slug]
-    nxt = POSTS[(i + 1) % len(POSTS)]
+    es = slug in ES
+    pool = [p for p in POSTS if (p in ES) == es]
+    nxt = pool[(pool.index(slug) + 1) % len(pool)]
     nxt_title = read(nxt)[0]
+    T = dict(journal="Blog", by="Por Gerson Lopez · GLPX Studio, Orlando FL", work="Trabaja con GLPX",
+             h3="Fotos que también venden.", side="Fotografía de marca, headshots, editorial y eventos en Orlando. Cada sesión se cotiza después de una llamada gratuita.",
+             cta="Agenda una llamada gratis", see="Ver trabajo", nexte="Siguiente en el blog", all="Todos los artículos →") if es else dict(
+             journal="Journal", by="By Gerson Lopez · GLPX Studio, Orlando FL", work="Work with GLPX",
+             h3="Photos that do some of the selling.", side="Branding, headshot, editorial and event photography across Orlando. Every shoot is quoted after a free call.",
+             cta="Book a free call", see="See " + topic.lower() + " work", nexte="Next in the journal", all="All posts →")
     body = f'''  <section class="page-hero post-hero">
     <div class="wrap">
       <div class="hero-copy">
-        <p class="eyebrow"><a href="blog/">Journal</a> · {date}</p>
+        <p class="eyebrow"><a href="blog/">{T["journal"]}</a> · {date}</p>
         <h1>{title}</h1>
-        <p class="post-by">By Gerson Lopez · GLPX Studio, Orlando FL</p>
+        <p class="post-by">{T["by"]}</p>
       </div>
     </div>
   </section>
@@ -159,27 +202,30 @@ for i, slug in enumerate(POSTS):
 {to_html(md)}
       </article>
       <aside class="post-side">
-        <p class="eyebrow">Work with GLPX</p>
-        <h3>Photos that do some of the selling.</h3>
-        <p>Branding, headshot, editorial and event photography across Orlando. Every shoot is quoted after a free call.</p>
-        <a class="btn btn--red" href="{BOOK}" target="_blank" rel="noopener">Book a free call</a>
-        <a class="btn btn--ghost" href="{topic_href}">See {topic.lower()} work</a>
+        <p class="eyebrow">{T["work"]}</p>
+        <h3>{T["h3"]}</h3>
+        <p>{T["side"]}</p>
+        <a class="btn btn--red" href="{BOOK}" target="_blank" rel="noopener">{T["cta"]}</a>
+        <a class="btn btn--ghost" href="{topic_href}">{T["see"]}</a>
       </aside>
     </div>
   </section>
 
   <section class="section cream">
     <div class="wrap post-next">
-      <p class="eyebrow">Next in the journal</p>
+      <p class="eyebrow">{T["nexte"]}</p>
       <h2><a href="blog/{nxt}/">{nxt_title}</a></h2>
-      <p><a href="blog/">All posts →</a></p>
+      <p><a href="blog/">{T["all"]}</a></p>
     </div>
   </section>
 
 {closer("Ready when <em>you</em> are.")}'''
     url = f"{SITE}blog/{slug}/"
     write_nested(f"blog/{slug}", f"{title} · GLPX Studio", desc, body,
-                 '<meta property="og:type" content="article">\n' + article_ld(title, date, desc, url))
+                 '<meta property="og:type" content="article">\n' + hreflang(slug) + article_ld(title, date, desc, url))
+    if es:
+        f = ROOT / "blog" / slug / "index.html"
+        f.write_text(f.read_text().replace('<html lang="en">', '<html lang="es">', 1))
     index_rows.append(f'''      <a class="post-row" href="blog/{slug}/">
         <span class="kicker">{date}</span>
         <h3>{title}</h3>
@@ -243,7 +289,7 @@ REDIRECTS = {
 PIXPA_POSTS = [s for s in POSTS if s not in {
     "realtor-headshots-branding-orlando", "team-headshots-orlando-how-it-works",
     "album-cover-photography-orlando", "social-video-orlando-brands",
-    "how-often-update-brand-photos", "product-photography-small-business-orlando", "holiday-party-photography-orlando", "prepare-for-branding-photoshoot", "branding-photography-cost-orlando"}]
+    "how-often-update-brand-photos", "linkedin-headshots-orlando", "foto-perfil-linkedin", "fotos-corporativas-equipo-orlando", "fotos-para-realtors-orlando", "music-release-content-plan", "contenido-lanzamiento-musical", "sesion-estudio-o-exteriores", "product-photography-small-business-orlando", "holiday-party-photography-orlando", "prepare-for-branding-photoshoot", "branding-photography-cost-orlando"}]
 for s in PIXPA_POSTS:
     REDIRECTS[f"blog-post-comments/{s}"] = f"blog/{s}/"
 for old, new in REDIRECTS.items():
