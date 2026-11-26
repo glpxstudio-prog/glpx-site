@@ -39,7 +39,7 @@ FOOTER = f'''<footer class="site-foot">
     <div><img src="assets/img/logo-white.svg" alt="GLPX Studio"></div>
     <div>
       <h4>Explore</h4>
-      <ul>{"".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("index.html", "Home")] + NAV + [("corporate-headshots-orlando.html", "Team headshots"), ("commercial-photography-orlando.html", "Commercial"), ("videography-orlando.html", "Video"), ("model-casting/", "Model casting"), ("areas.html", "Areas we serve"), ("blog/", "Journal"), ("es/", "En español")])}</ul>
+      <ul>{"".join(f'<li><a href="{h}">{t}</a></li>' for h, t in [("index.html", "Home")] + NAV + [("corporate-headshots-orlando.html", "Team headshots"), ("commercial-photography-orlando.html", "Commercial"), ("videography-orlando.html", "Video"), ("model-casting/", "Model casting"), ("areas.html", "Areas we serve"), ("blog/", "Journal")])}</ul>
     </div>
     <div>
       <h4>Contact</h4>
