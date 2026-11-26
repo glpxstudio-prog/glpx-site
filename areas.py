@@ -410,3 +410,4 @@ import finish  # structured data, social previews, lazy images
 import blog  # journal posts, legal pages, redirects from old Pixpa addresses
 import model  # model casting page at /model-casting/ (after blog, so the sitemap order matches)
 import links  # Instagram link-in-bio page at /links
+import es  # Spanish pages under /es/ + hreflang on their English pairs (last, after every English page exists)
