@@ -911,7 +911,7 @@ kis_frames = [
     frame("hs-redtop.jpg", "Mujer sonriente de cabello rizado con blusa roja", "Headshot", "08"),
     frame("br-fringe.jpg", "Hombre con suéter de rayas blanco y negro sobre fondo azul", "Marca", "11"),
     frame("hs-18.jpg", "Mujer con suéter azul y brazos cruzados", "Headshot", "14"),
-    frame("jestic-atwork.jpg", "Barbero cortándole el cabello a un niño en su barbería", "Negocio", "17"),
+    frame("bts-location.jpg", "Sesión en exteriores frente a unas escaleras, con Gerson fotografiando", "En locación", "17"),
 ]
 kis_faq = [
     ("¿Hacen sesiones en Kissimmee?", "Sí. Las sesiones pueden ser en tu negocio en Kissimmee, en exteriores como Lakefront Park o el centro histórico en Broadway, o en un estudio rentado en Orlando."),
