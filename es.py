@@ -31,7 +31,6 @@ NAV_ES = [
 # Extra pages: in the menu panel, footer and "Más servicios" links, not the top bar
 NAV_MORE = [
     ("es/video-para-negocios-orlando/", "Video"),
-    ("es/fotos-de-equipo-empresas-orlando/", "Fotos de equipo"),
     ("es/fotografia-comercial-orlando/", "Fotografía comercial"),
     ("es/fotografo-kissimmee/", "Kissimmee"),
 ]
@@ -42,7 +41,6 @@ RELATED = [
     ("es/fotografo-musica-artistas-orlando/", "Fotógrafo para artistas"),
     ("es/fotografia-eventos-corporativos-orlando/", "Eventos corporativos"),
     ("es/video-para-negocios-orlando/", "Video para negocios"),
-    ("es/fotos-de-equipo-empresas-orlando/", "Fotos de equipo para empresas"),
     ("es/fotografia-comercial-orlando/", "Fotografía comercial"),
     ("es/fotografo-kissimmee/", "Fotógrafo en Kissimmee"),
 ]
@@ -800,7 +798,7 @@ video = f'''  <section class="page-hero page-hero--black">
       <div>
         <p class="eyebrow">Fotos y video juntos</p>
         <h2>Un día, todo cubierto.</h2>
-        <p>Agrega <a href="es/fotografia-de-marca-orlando/">fotos de marca</a>, <a href="es/fotografia-comercial-orlando/">fotografía comercial</a> o <a href="es/fotos-de-equipo-empresas-orlando/">fotos de equipo</a> al mismo día de grabación.</p>
+        <p>Agrega <a href="es/fotografia-de-marca-orlando/">fotos de marca</a> o <a href="es/fotografia-comercial-orlando/">fotografía comercial</a> al mismo día de grabación.</p>
       </div>
     </div>
   </section>
@@ -817,103 +815,6 @@ video = f'''  <section class="page-hero page-hero--black">
 vid_desc = "Video para negocios en Orlando: Reels, TikToks, videos de marca y video de eventos. Guiones y grabación en español, en inglés o en los dos."
 write_es("es/video-para-negocios-orlando/", "Video para negocios en Orlando · Reels y videos de marca", vid_desc, video,
          service_ld("Video para negocios en Orlando", vid_desc, "es/video-para-negocios-orlando/") + faq_ld(vid_faq))
-
-# ================================================================== FOTOS DE EQUIPO
-team_frames = [
-    frame("jestic-adrian.jpg", "Barbero de Jestic con polo negro sobre fondo gris oscuro", "Equipo", "01"),
-    frame("jestic-ericko.jpg", "Barbero de Jestic con barba y polo negro", "Equipo", "02"),
-    frame("jestic-luisito.jpg", "Barbero de Jestic con polo negro, retrato de frente", "Equipo", "03", pick=True),
-    frame("jestic-regal.jpg", "Barbero de Jestic con lentes y polo negro", "Equipo", "04"),
-    frame("jestic-reggie.jpg", "Barbero de Jestic con gorra y polo negro", "Equipo", "05"),
-    frame("jestic-rene.jpg", "Barbero de Jestic con polo negro y barba corta", "Equipo", "06"),
-]
-team_faq = [
-    ("¿Vienen a nuestra oficina?", "Sí. Las luces y el fondo caben en una sala de juntas o en una esquina de la oficina. Tu equipo no sale del edificio y cada persona vuelve a trabajar en pocos minutos."),
-    ("¿Todas las fotos se ven iguales?", "Sí. Mismo fondo, misma luz y mismo encuadre para todos, así tu web y LinkedIn se ven como una sola empresa. Si contratas a alguien después, su foto se toma igual para que combine."),
-    ("¿Cuánto tiempo toma cada persona?", "Unos pocos minutos. A cada persona la dirijo en la pose y la expresión, para que nadie salga con cara de foto de licencia."),
-    ("¿Pueden tomar fotos del equipo trabajando el mismo día?", "Sí. Con el equipo ya montado, también podemos fotografiar a tu gente haciendo su trabajo: fotos para tu web, tu perfil de Google y tus redes."),
-    ("¿Cuánto cuesta?", "Depende de cuántas personas, cuántos looks y si es en tu oficina o en un estudio. Cuéntame en una llamada rápida y te mando la cotización en menos de 24 horas."),
-]
-equipo = f'''  <section class="page-hero page-hero--ink">
-    <div class="wrap">
-      <div class="hero-copy">
-        <p class="eyebrow">Fotos de equipo para empresas · Orlando, FL</p>
-        <h1>Todo tu equipo, <em>con la misma foto.</em></h1>
-        <p class="lede">Fotos corporativas para equipos en Orlando, tomadas en tu oficina o en un estudio. Misma luz, mismo fondo y mismo encuadre para todos, así tu web y LinkedIn se ven como una sola empresa. Dirección en español o en inglés.</p>
-        <div class="hero-actions">
-          <a class="btn btn--red" href="{BOOKING}">Cotiza tu equipo</a>
-          <a class="btn btn--ghost" href="#equipo">Ver un equipo</a>
-        </div>
-      </div>
-      <figure class="print">
-        <img src="assets/img/jestic-atwork.jpg" alt="Barbero de Jestic cortándole el cabello a un niño en la barbería">
-        <figcaption><span>Jestic · Equipo trabajando</span><span>Fr. 01</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <div class="credits"><div class="wrap">
-    <span>Despachos de <b>abogados</b></span><span><b>Clínicas</b> y consultorios</span><span>Equipos de <b>bienes raíces</b></span><span><b>Barberías</b> y salones</span>
-  </div></div>
-
-  <section class="section dark" id="equipo">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Un equipo, un look</p>
-        <h2>El equipo de Jestic, fotografiado para combinar.</h2>
-        <p>Mismo fondo, misma luz y mismo encuadre para cada barbero.</p>
-      </div>
-      {sheet(team_frames, ["GLPX STUDIO", "FOTOS DE EQUIPO", "▸ ORLANDO"], "sheet--3")}
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head"><p class="eyebrow">Cómo es el día</p><h2>Montamos en una esquina. Vuelven al trabajo rápido.</h2></div>
-      <div class="steps">
-        <div class="step"><h3>Planeamos el look</h3><p>Color de fondo, encuadre y recomendaciones de ropa, según tu marca y tu web.</p></div>
-        <div class="step"><h3>Llevo el estudio</h3><p>Las luces y el fondo caben en una sala de juntas. Tu equipo no sale del edificio.</p></div>
-        <div class="step"><h3>Pocos minutos por persona</h3><p>Dirijo a cada uno en la pose y la expresión. Nadie sale tieso.</p></div>
-        <div class="step"><h3>Retoque y entrega</h3><p>Cada persona elige su favorita. Las fotos llegan retocadas y recortadas para LinkedIn, la web y los gafetes.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section cream">
-    <div class="wrap split">
-      <div>
-        <p class="eyebrow">Lo que recibes</p>
-        <h2>Listas para cada perfil.</h2>
-        <ul class="ticks">
-          <li><span>Fondo</span><span>Según tu marca</span></li>
-          <li><span>Dirección</span><span>Para cada persona</span></li>
-          <li><span>Retoque</span><span>Natural</span></li>
-          <li><span>Recortes</span><span>LinkedIn · web · gafete</span></li>
-          <li><span>Nuevos empleados</span><span>Fotos que combinan</span></li>
-        </ul>
-      </div>
-      <div>
-        <p class="eyebrow">Precio</p>
-        <h2>Se cotiza por tamaño del equipo.</h2>
-        <p>Depende de cuántas personas, cuántos looks y si es en tu oficina o en un estudio. Te mando la cotización en menos de 24 horas. ¿Es solo para ti? Mira las <a href="es/fotos-profesionales-orlando/">fotos profesionales individuales</a>.</p>
-        <div><a class="btn btn--red" href="{BOOKING}">Pide tu cotización</a></div>
-      </div>
-    </div>
-  </section>
-
-{reviews_es(["ashana", "melany"], "Clientes sobre sus fotos.")}
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head"><p class="eyebrow">Preguntas frecuentes</p><h2>Fotos de equipo en Orlando.</h2></div>
-      {faq(team_faq)}
-      <p class="es-center" style="margin-top:24px"><a class="btn btn--red" href="blog/fotos-corporativas-equipo-orlando/">Guía: fotos corporativas para tu equipo</a></p>
-    </div>
-  </section>
-
-{related("es/fotos-de-equipo-empresas-orlando/")}{closer_es("Que tu equipo se vea <em>como uno solo.</em>")}'''
-team_desc = "Fotos de equipo para empresas en Orlando, en tu oficina o en estudio. Misma luz y mismo fondo para todos, listas para LinkedIn y tu web."
-write_es("es/fotos-de-equipo-empresas-orlando/", "Fotos de equipo para empresas en Orlando · GLPX Studio", team_desc, equipo,
-         service_ld("Fotos de equipo y corporativas en Orlando", team_desc, "es/fotos-de-equipo-empresas-orlando/") + faq_ld(team_faq))
 
 # ================================================================== FOTOGRAFÍA COMERCIAL
 com_frames = [
@@ -1014,7 +915,7 @@ kis_frames = [
 ]
 kis_faq = [
     ("¿Hacen sesiones en Kissimmee?", "Sí. Las sesiones pueden ser en tu negocio en Kissimmee, en exteriores como Lakefront Park o el centro histórico en Broadway, o en un estudio rentado en Orlando."),
-    ("¿Qué servicios ofrecen en Kissimmee?", "Fotos profesionales y headshots, fotografía de marca personal para tu negocio, fotos de equipo, fotografía comercial, video para redes y cobertura de eventos."),
+    ("¿Qué servicios ofrecen en Kissimmee?", "Fotos profesionales y headshots, fotografía de marca personal para tu negocio, fotografía comercial, video para redes y cobertura de eventos."),
     ("¿Las sesiones son en español?", "Sí. Toda la sesión puede ser en español, desde la llamada para planear hasta la entrega."),
     ("¿Cuál es la mejor hora para fotos en exteriores?", "El amanecer y el atardecer en Lakefront Park, junto al lago Toho, dan la luz más cálida. Dentro de tu negocio llevo luces, así que cualquier hora funciona."),
     ("¿Cuánto cuesta?", "Depende del tipo de sesión, cuántas personas y cuántos looks. Cuéntame en una llamada rápida y te mando la cotización en menos de 24 horas."),
@@ -1056,7 +957,6 @@ kissimmee = f'''  <section class="page-hero page-hero--red">
       <div class="steps" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))">
         <div class="step"><h3><a href="es/fotos-profesionales-orlando/">Fotos profesionales</a></h3><p>Headshots para LinkedIn, realtors, agentes de seguros y profesionales.</p></div>
         <div class="step"><h3><a href="es/fotografia-de-marca-orlando/">Fotos para tu negocio</a></h3><p>Una sesión de marca personal en tu local, para tu web y tus redes.</p></div>
-        <div class="step"><h3><a href="es/fotos-de-equipo-empresas-orlando/">Fotos de equipo</a></h3><p>Todo tu equipo con la misma foto, tomada en tu oficina.</p></div>
         <div class="step"><h3><a href="es/video-para-negocios-orlando/">Video para redes</a></h3><p>Reels y videos de marca en español para tus clientes.</p></div>
       </div>
     </div>
@@ -1090,7 +990,7 @@ kissimmee = f'''  <section class="page-hero page-hero--red">
   </section>
 
 {related("es/fotografo-kissimmee/")}{closer_es("Planeemos tu sesión <em>en Kissimmee.</em>")}'''
-kis_desc = "Fotógrafo en Kissimmee que habla español: fotos profesionales, fotos para tu negocio, fotos de equipo y video. Sesiones en tu local o junto al lago Toho."
+kis_desc = "Fotógrafo en Kissimmee que habla español: fotos profesionales, fotos para tu negocio y video. Sesiones en tu local o junto al lago Toho."
 write_es("es/fotografo-kissimmee/", "Fotógrafo en Kissimmee que habla español · GLPX Studio", kis_desc, kissimmee,
          service_ld("Fotografía en Kissimmee", kis_desc, "es/fotografo-kissimmee/").replace('"areaServed": "Orlando, FL"', '"areaServed": "Kissimmee, FL"') + faq_ld(kis_faq))
 
