@@ -85,24 +85,55 @@ def closer_es(title_html, sub=""):
   </section>'''
 
 
+REVIEWS_ES = {
+    "johan": ("Se tomó el tiempo para entender mi marca, mi visión y el mensaje que quería comunicar con mis fotos. No solo toma fotos: le da vida a tu marca con imágenes que cuentan una historia.", "Johan Fitch", "CutsbyJohan"),
+    "grace": ("Necesitaba una sesión de fotos de marca para mi negocio de bienes raíces. Me dio muy buenos consejos y consiguió un excelente estudio para nosotros. Es muy profesional y atento a cada detalle.", "Grace N", "Bienes raíces"),
+    "charlyn": ("GLPX Studio es, sin duda, el mejor fotógrafo de Orlando. Su ojo para los detalles, la luz y la forma de contar historias está a otro nivel.", "Charlyn Castro-Rojas", "Cliente de marca personal"),
+    "gabriel": ("Desde sesiones editoriales hasta conceptos en exteriores y dirección creativa, su versatilidad y su ojo para los detalles no tienen comparación.", "Gabriel Bravo", "Socio creativo desde 2020"),
+    "ashana": ("Mis headshots quedaron hermosos y estoy muy emocionada de volver a reservar. Gerson fue sumamente profesional y dio instrucciones claras para lograr las fotos perfectas.", "Ashana G", "Headshots"),
+    "melany": ("Me encantan mis fotos profesionales. Gerson fue puntual, profesional y sabe cómo lograr las mejores tomas. ¡Lo recomiendo muchísimo!", "Melany Stewart", "Headshots"),
+}
+
+
 def reviews_es(keys, heading):
-    # Client quotes stay in the words they were written in; only the frame is in Spanish.
-    return (reviews_section(keys, heading)
-            .replace("Google reviews · 5.0", "Reseñas en Google · 5.0")
-            .replace("Read all reviews on Google →", "Lee todas las reseñas en Google →")
-            .replace('aria-label="5 out of 5 stars"', 'aria-label="5 de 5 estrellas"'))
+    # Clients wrote these in English on Google; shown here in Spanish and labeled as translations.
+    cards = "".join(
+        f'<figure class="v2-rev"><span class="stars" aria-label="5 de 5 estrellas">\u2605\u2605\u2605\u2605\u2605</span>'
+        f'<blockquote>\u201c{REVIEWS_ES[k][0]}\u201d</blockquote><figcaption><b>{REVIEWS_ES[k][1]}</b><span>{REVIEWS_ES[k][2]}</span></figcaption></figure>'
+        for k in keys)
+    return f'''  <section class="section rev-sec">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Reseñas en Google · 5.0 \u2605</p><h2>{heading}</h2></div>
+      <div class="v2-rev-grid rev-{len(keys)}">{cards}</div>
+      <p class="rev-more"><span class="es-note">Reseñas originales en inglés, traducidas al español.</span> <a href="{build.REVIEW_URL}" target="_blank" rel="noopener">Lee todas las reseñas en Google \u2192</a></p>
+    </div>
+  </section>
+'''
 
 
 def related(current):
     rows = "".join(f'<a href="{h}">{t}</a>' for h, t in RELATED if h != current)
-    return (f'  <section class="section cream">\n    <div class="wrap"><p class="eyebrow">Más servicios</p>'
+    return (f'  <section class="section cream es-related">\n    <div class="wrap"><p class="eyebrow">Más servicios</p>'
             f'<div class="tags">{rows}<a href="blog/foto-perfil-linkedin/">Guía: foto de perfil para LinkedIn</a>'
             f'<a href="blog/fotos-para-realtors-orlando/">Guía: fotos para realtors</a></div></div>\n  </section>\n\n')
 
 
+ES_CSS = """<style>
+html[lang="es"] .es-related .wrap { text-align: center; }
+html[lang="es"] .es-related .tags { justify-content: center; margin-top: 16px; }
+html[lang="es"] .es-note { display: block; margin-bottom: 8px; font-size: 13px; opacity: .7; }
+@media (max-width: 760px) {
+  html[lang="es"] .es-center { text-align: center; }
+  html[lang="es"] .ticks li { flex-direction: column; align-items: center; text-align: center; gap: 4px; }
+  html[lang="es"] .ticks li span:last-child { text-align: center; }
+}
+</style>
+"""
+
+
 def write_es(path, title, desc, body, extra_head=""):
     tmp = ROOT / "_tmp_es.html"
-    page(tmp.name, title, desc, body, finish.LD + extra_head)
+    page(tmp.name, title, desc, body, finish.LD + extra_head + ES_CSS)
     html = tmp.read_text()
     html = html.replace('<html lang="en">', '<html lang="es">', 1)
     html = re.sub(r'<header class="site-head">.*?</header>', lambda m: header_es(path), html, count=1, flags=re.S)
@@ -207,7 +238,7 @@ home = f'''  <section class="page-hero page-hero--red">
     <div class="wrap">
       <div class="section-head"><p class="eyebrow">Trabajo reciente</p><h2>Un poco de lo que hago.</h2></div>
       {sheet(home_frames, ["GLPX STUDIO", "ORLANDO", "▸ FLORIDA CENTRAL"], "sheet--3")}
-      <p style="margin-top:24px"><a class="btn btn--ghost" href="portfolio.html">Ver el portafolio completo</a></p>
+      <p class="es-center" style="margin-top:24px"><a class="btn btn--ghost" href="portfolio.html">Ver el portafolio completo</a></p>
     </div>
   </section>
 
@@ -521,7 +552,7 @@ artistas = f'''  <section class="page-hero page-hero--black">
         <div class="step"><h3>Contenido vertical</h3><p>Fotos y reels para anunciar la fecha en Instagram y TikTok.</p></div>
         <div class="step"><h3>Detrás de cámaras</h3><p>El material que mantiene a tus fans pendientes después del estreno.</p></div>
       </div>
-      <p style="margin-top:24px"><a class="btn btn--red" href="blog/contenido-lanzamiento-musical/">Guía: contenido para un lanzamiento musical</a></p>
+      <p class="es-center" style="margin-top:24px"><a class="btn btn--red" href="blog/contenido-lanzamiento-musical/">Guía: contenido para un lanzamiento musical</a></p>
     </div>
   </section>
 
