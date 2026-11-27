@@ -28,18 +28,27 @@ NAV_ES = [
     ("es/fotografia-eventos-corporativos-orlando/", "Eventos"),
     ("portfolio.html", "Portafolio"),
 ]
-PAGES = [h for h, _ in NAV_ES if h.startswith("es/")]
+# Extra pages: in the menu panel, footer and "Más servicios" links, not the top bar
+NAV_MORE = [
+    ("es/video-para-negocios-orlando/", "Video"),
+    ("es/fotografia-comercial-orlando/", "Fotografía comercial"),
+    ("es/fotografo-kissimmee/", "Kissimmee"),
+]
+PAGES = [h for h, _ in NAV_ES + NAV_MORE if h.startswith("es/")]
 RELATED = [
     ("es/fotografia-de-marca-orlando/", "Fotografía de marca personal"),
     ("es/fotos-profesionales-orlando/", "Fotos profesionales y headshots"),
     ("es/fotografo-musica-artistas-orlando/", "Fotógrafo para artistas"),
     ("es/fotografia-eventos-corporativos-orlando/", "Eventos corporativos"),
+    ("es/video-para-negocios-orlando/", "Video para negocios"),
+    ("es/fotografia-comercial-orlando/", "Fotografía comercial"),
+    ("es/fotografo-kissimmee/", "Fotógrafo en Kissimmee"),
 ]
 
 
 def header_es(current):
     links = "\n".join(f'      <a href="{h}"{" aria-current=\"page\"" if h == current else ""}>{t}</a>' for h, t in NAV_ES)
-    menu = "\n".join(f'          <a href="{h}">{t}</a>' for h, t in NAV_ES)
+    menu = "\n".join(f'          <a href="{h}">{t}</a>' for h, t in NAV_ES + NAV_MORE)
     return f'''<header class="site-head">
   <div class="wrap">
     <a class="logo" href="es/" aria-label="GLPX Studio, inicio"><img src="assets/img/logo-white.svg" alt="GLPX Studio"></a>
@@ -62,7 +71,7 @@ FOOTER_ES = f'''<footer class="site-foot">
     <div><img src="assets/img/logo-white.svg" alt="GLPX Studio"></div>
     <div>
       <h4>Explora</h4>
-      <ul>{"".join(f'<li><a href="{h}">{t}</a></li>' for h, t in NAV_ES + [("blog/foto-perfil-linkedin/", "Guía: foto para LinkedIn"), ("blog/contenido-lanzamiento-musical/", "Guía: lanzamiento musical")])}</ul>
+      <ul>{"".join(f'<li><a href="{h}">{t}</a></li>' for h, t in NAV_ES + NAV_MORE + [("blog/foto-perfil-linkedin/", "Guía: foto para LinkedIn"), ("blog/contenido-lanzamiento-musical/", "Guía: lanzamiento musical")])}</ul>
     </div>
     <div>
       <h4>Contacto</h4>
@@ -710,6 +719,281 @@ eventos = f'''  <section class="page-hero page-hero--ink">
 ev_desc = "Fotógrafo bilingüe para eventos corporativos en Orlando: conferencias, galas, fiestas de empresa y lanzamientos. Cobertura en español e inglés."
 write_es("es/fotografia-eventos-corporativos-orlando/", "Fotografía de eventos corporativos en Orlando · GLPX Studio", ev_desc, eventos,
          service_ld("Fotografía de eventos corporativos en Orlando", ev_desc, "es/fotografia-eventos-corporativos-orlando/") + faq_ld(ev_faq))
+
+# ================================================================== VIDEO PARA NEGOCIOS
+vid_faq = [
+    ("¿Qué tipo de videos hacen?", "Tres tipos: contenido para redes (Reels, TikToks y Stories), videos de marca para tu web (quiénes somos, explicación de servicios, testimonios de clientes) y video de eventos (resúmenes y clips de oradores)."),
+    ("¿Los videos pueden ser en español?", "Sí. Escribimos los guiones y grabamos en español, en inglés o en los dos, según tu público. Te dirijo frente a la cámara en el idioma que prefieras."),
+    ("No me siento cómodo frente a la cámara. ¿Igual funciona?", "Sí. Planeamos los temas y las primeras frases antes de grabar, y te dirijo toma por toma. No necesitas memorizar un guion ni ser natural frente a la cámara."),
+    ("¿Puedo hacer fotos y video el mismo día?", "Sí, y es lo que más recomiendo. Con un solo plan y un solo día tienes fotos y videos que combinan para tu web, tus anuncios y tus redes."),
+    ("¿Cuánto cuesta?", "Se cotiza por proyecto: depende de cuántos videos necesitas, cuánto dura la grabación y cuánta edición lleva cada uno. Cuéntame en una llamada gratis y te mando la cotización en menos de 24 horas. Un depósito del 50 % aparta tu fecha."),
+]
+video = f'''  <section class="page-hero page-hero--black">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Video para negocios · Orlando, FL</p>
+        <h1>Video que <em>te pone a la vista.</em></h1>
+        <p class="lede">Reels, TikToks, videos de marca y video de eventos para negocios en Orlando. Planeamos lo que vas a decir, te dirijo frente a la cámara y te entrego videos listos para publicar, en español, en inglés o en los dos.</p>
+        <div class="hero-actions">
+          <a class="btn btn--red" href="{BOOKING}">Agenda una llamada gratis</a>
+          <a class="btn btn--ghost" href="https://www.instagram.com/glpxstudio/" target="_blank" rel="noopener">Ver videos en Instagram</a>
+        </div>
+      </div>
+      <figure class="print">
+        <img src="assets/img/ab-bts-camera.jpg" alt="Gerson grabando con una cámara de cine en un set">
+        <figcaption><span>En set · Video</span><span>Fr. 01</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Qué grabo</p><h2>Tres tipos de video. Un objetivo: que te encuentren.</h2></div>
+      <div class="steps" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))">
+        <div class="step"><h3>Contenido para redes</h3><p>Reels, TikToks y Stories grabados con celular para que se vean naturales. Verticales, editados y listos para subir, sin que tengas que grabarte tú.</p></div>
+        <div class="step"><h3>Videos de marca</h3><p>Tu video de quiénes somos, la explicación de tus servicios, la historia de tu negocio y testimonios de clientes. Los videos que cierran la venta en tu web.</p></div>
+        <div class="step"><h3>Video de eventos</h3><p>Resúmenes de conferencias y eventos de empresa, clips de oradores y videos destacados para publicar la misma semana.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Para el mercado latino</p>
+        <h2>Habla con tus clientes en su idioma.</h2>
+      </div>
+      <div>
+        <p>Si tus clientes te escriben por WhatsApp y te siguen en Facebook e Instagram, un video en español les habla directo. Puedes grabar la misma idea en los dos idiomas el mismo día y tener contenido para los dos públicos.</p>
+        <ul class="ticks">
+          <li><span>Contenido para redes</span><span>Grabado con celular · vertical</span></li>
+          <li><span>Videos de marca y eventos</span><span>Equipo de cine profesional</span></li>
+          <li><span>Formatos</span><span>9:16 · 1:1 · 16:9</span></li>
+          <li><span>Idioma</span><span>Español e inglés</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Cómo trabajamos</p><h2>Primero la idea. Después la cámara.</h2></div>
+      <div class="steps">
+        <div class="step"><h3>Llamada</h3><p>Hablamos de tus metas, tus plataformas y dónde van a vivir los videos. Recibes la cotización en menos de 24 horas.</p></div>
+        <div class="step"><h3>Plan</h3><p>Las primeras frases, los puntos clave y la lista de tomas, para no improvisar el día de la grabación.</p></div>
+        <div class="step"><h3>Grabación</h3><p>En tu negocio, en tu evento o en un estudio en Orlando. Te dirijo frente a la cámara.</p></div>
+        <div class="step"><h3>Edición y entrega</h3><p>Videos editados en el tamaño de cada plataforma, listos para publicar o pasarle a tu equipo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cream">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Precio</p>
+        <h2>Se cotiza por proyecto.</h2>
+        <p>Depende de cuántos videos necesitas, cuánto dura la grabación y cuánta edición lleva cada uno. Cuéntame en una llamada gratis y te mando la cotización en menos de 24 horas. Un depósito del 50 % aparta tu fecha.</p>
+        <div><a class="btn btn--red" href="{BOOKING}">Pide tu cotización</a></div>
+      </div>
+      <div>
+        <p class="eyebrow">Fotos y video juntos</p>
+        <h2>Un día, todo cubierto.</h2>
+        <p>Agrega <a href="es/fotografia-de-marca-orlando/">fotos de marca</a> o <a href="es/fotografia-comercial-orlando/">fotografía comercial</a> al mismo día de grabación.</p>
+      </div>
+    </div>
+  </section>
+
+{reviews_es(["johan", "charlyn"], "Clientes sobre trabajar con GLPX.")}
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Preguntas frecuentes</p><h2>Antes de grabar.</h2></div>
+      {faq(vid_faq)}
+    </div>
+  </section>
+
+{related("es/video-para-negocios-orlando/")}{closer_es("Hagamos que tu negocio <em>se vea.</em>")}'''
+vid_desc = "Video para negocios en Orlando: Reels, TikToks, videos de marca y video de eventos. Guiones y grabación en español, en inglés o en los dos."
+write_es("es/video-para-negocios-orlando/", "Video para negocios en Orlando · Reels y videos de marca", vid_desc, video,
+         service_ld("Video para negocios en Orlando", vid_desc, "es/video-para-negocios-orlando/") + faq_ld(vid_faq))
+
+# ================================================================== FOTOGRAFÍA COMERCIAL
+com_frames = [
+    frame("br-bluelight.jpg", "Hombre con chaqueta y lentes de sol frente a una luz azul", "Estudio", "01"),
+    frame("yellow-suit.jpg", "Mujer con traje amarillo y unas tijeras en la mano sobre fondo claro", "Campaña", "04", pick=True),
+    frame("br-green.jpg", "Mujer con suéter verde frente a un fondo verde", "Estudio", "07"),
+    frame("br-suit.jpg", "Mujer de traje negro con los brazos cruzados en una oficina", "Estudio", "10"),
+    frame("br-night.jpg", "Mujer con abrigo negro en una calle del centro de Orlando de noche", "Exteriores", "13"),
+    frame("br-jersey.jpg", "Hombre con jersey deportivo sentado en una silla plegable roja", "Campaña", "16"),
+]
+com_faq = [
+    ("¿Qué es la fotografía comercial?", "Es cualquier foto que tu negocio usa para vender: banners de tu web, anuncios en Facebook e Instagram, fotos de tu equipo trabajando y de tus servicios. Antes de la sesión hacemos la lista de dónde va a vivir cada foto."),
+    ("¿Hacen fotos para anuncios de Facebook e Instagram?", "Sí. Fotografiamos en vertical y en cuadrado, como un set, para que toda la campaña se vea consistente."),
+    ("¿Puede ser en mi negocio?", "Sí. Puede ser en un estudio en Orlando, en tu local o en los dos. Fotografiar a tu equipo haciendo su trabajo real es lo que más confianza genera."),
+    ("¿Cuánto dura una producción?", "Medio día (hasta 5 horas y 3 cambios de set) o día completo (hasta 10 horas y locaciones ilimitadas, con traslado incluido hasta 1 hora de Orlando)."),
+    ("¿Cuánto cuesta?", "Cada producción se cotiza a la medida. Cuéntame qué necesitas en una llamada gratis y te mando la cotización en menos de 24 horas. Un depósito del 50 % aparta tu fecha."),
+]
+comercial = f'''  <section class="page-hero page-hero--red">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Fotografía comercial · Orlando, FL</p>
+        <h1>Fotos que <em>venden tu trabajo.</em></h1>
+        <p class="lede">Fotografía comercial en Orlando para tu web, tus anuncios y tus campañas. Tu equipo, tus clientes y tu negocio en acción, planeados según dónde va a aparecer cada foto. Producción en español o en inglés.</p>
+        <div class="hero-actions">
+          <a class="btn btn--solid" href="{BOOKING}">Agenda una llamada gratis</a>
+          <a class="btn btn--ghost" href="#trabajo">Ver trabajo</a>
+        </div>
+      </div>
+      <figure class="print">
+        <img src="assets/img/ab-bts-set.jpg" alt="Gerson en un set de fotografía con luces y una cámara en trípode">
+        <figcaption><span>Comercial · Estudio</span><span>Fr. 01</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="credits"><div class="wrap">
+    <span>Para <b>negocios locales</b></span><span><b>Barberías</b> y salones</span><span><b>Clínicas</b> y consultorios</span><span><b>Restaurantes</b> y tiendas</span>
+  </div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Qué cubre</p><h2>Cada foto tiene un trabajo que hacer.</h2></div>
+      <div class="steps">
+        <div class="step"><h3>Tu web</h3><p>Banners con espacio para tu titular, fotos para la página de quiénes somos y fotos de tus servicios.</p></div>
+        <div class="step"><h3>Anuncios y redes</h3><p>Fotos verticales y cuadradas para Facebook, Instagram y Google, tomadas como un set.</p></div>
+        <div class="step"><h3>Tu equipo trabajando</h3><p>Gente real haciendo su trabajo: en la silla, en el escritorio, con un cliente.</p></div>
+        <div class="step"><h3>Lanzamientos</h3><p>Nuevo local, nueva contratación, nueva oferta. Fotos nuevas para el anuncio, el post y el correo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="trabajo">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Trabajo comercial</p><h2>Estudio, calle y lugares de trabajo reales.</h2></div>
+      {sheet(com_frames, ["GLPX STUDIO", "COMERCIAL", "▸ ORLANDO"], "sheet--3")}
+    </div>
+  </section>
+
+  <section class="section cream">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Producciones</p><h2>Medio día o día completo.</h2></div>
+      <div class="price-row">
+        <article class="price">
+          <h3>Medio día</h3>
+          <ul><li>Hasta 5 horas</li><li>Hasta 3 cambios de set</li><li>Web, anuncios y redes</li></ul>
+        </article>
+        <article class="price price--feature">
+          <span class="tag">Campaña completa</span>
+          <h3>Día completo</h3>
+          <ul><li>Hasta 10 horas</li><li>Locaciones ilimitadas</li><li>Traslado incluido hasta 1 hora de Orlando</li></ul>
+        </article>
+      </div>
+      <p class="terms">Cada producción se cotiza a la medida · Dirección creativa, maquillaje y peinado se pueden agregar · Un depósito del 50 % aparta tu fecha</p>
+    </div>
+  </section>
+
+{reviews_es(["johan", "grace"], "Negocios que ya trabajaron con GLPX.")}
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Preguntas frecuentes</p><h2>Fotografía comercial en Orlando.</h2></div>
+      {faq(com_faq)}
+    </div>
+  </section>
+
+{related("es/fotografia-comercial-orlando/")}{closer_es("Pongamos tu negocio <em>a trabajar.</em>")}'''
+com_desc = "Fotografía comercial en Orlando para tu web, anuncios de Facebook e Instagram y campañas. Producciones de medio día o día completo, en español."
+write_es("es/fotografia-comercial-orlando/", "Fotografía comercial en Orlando · GLPX Studio", com_desc, comercial,
+         service_ld("Fotografía comercial en Orlando", com_desc, "es/fotografia-comercial-orlando/") + faq_ld(com_faq))
+
+# ================================================================== KISSIMMEE
+kis_frames = [
+    frame("hs-yamil.jpg", "Joven con suéter gris claro y brazos cruzados", "Headshot", "02"),
+    frame("br-lightblue.jpg", "Mujer con vestido azul claro en estudio", "Marca", "05", pick=True),
+    frame("hs-redtop.jpg", "Mujer sonriente de cabello rizado con blusa roja", "Headshot", "08"),
+    frame("br-fringe.jpg", "Hombre con suéter de rayas blanco y negro sobre fondo azul", "Marca", "11"),
+    frame("hs-18.jpg", "Mujer con suéter azul y brazos cruzados", "Headshot", "14"),
+    frame("bts-location.jpg", "Sesión en exteriores frente a unas escaleras, con Gerson fotografiando", "En locación", "17"),
+]
+kis_faq = [
+    ("¿Hacen sesiones en Kissimmee?", "Sí. Las sesiones pueden ser en tu negocio en Kissimmee, en exteriores como Lakefront Park o el centro histórico en Broadway, o en un estudio rentado en Orlando."),
+    ("¿Qué servicios ofrecen en Kissimmee?", "Fotos profesionales y headshots, fotografía de marca personal para tu negocio, fotografía comercial, video para redes y cobertura de eventos."),
+    ("¿Las sesiones son en español?", "Sí. Toda la sesión puede ser en español, desde la llamada para planear hasta la entrega."),
+    ("¿Cuál es la mejor hora para fotos en exteriores?", "El amanecer y el atardecer en Lakefront Park, junto al lago Toho, dan la luz más cálida. Dentro de tu negocio llevo luces, así que cualquier hora funciona."),
+    ("¿Cuánto cuesta?", "Depende del tipo de sesión, cuántas personas y cuántos looks. Cuéntame en una llamada rápida y te mando la cotización en menos de 24 horas."),
+]
+kissimmee = f'''  <section class="page-hero page-hero--red">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Fotógrafo en Kissimmee, FL</p>
+        <h1>Fotos en Kissimmee, <em>en español.</em></h1>
+        <p class="lede">Fotos profesionales, fotos para tu negocio y video en Kissimmee. Sesiones en tu local, junto al lago Toho o en un estudio en Orlando, con toda la dirección en español.</p>
+        <div class="hero-actions">
+          <a class="btn btn--solid" href="{BOOKING}">Agenda una llamada gratis</a>
+          <a class="btn btn--ghost" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+      <figure class="print">
+        <img src="assets/img/br-suit.jpg" alt="Mujer de traje negro con los brazos cruzados en una oficina">
+        <figcaption><span>Marca personal · Kissimmee</span><span>Fr. 01</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Por qué Kissimmee</p>
+        <h2>Una de las comunidades hispanas más grandes de la Florida Central.</h2>
+      </div>
+      <div>
+        <p>Kissimmee vive del turismo, la hospitalidad y miles de pequeños negocios latinos: restaurantes, tiendas, oficinas de bienes raíces y de seguros, barberías y salones. Muchos atienden a sus clientes en español, y sus fotos tienen que hablarle a esa comunidad.</p>
+        <p>Por eso muchas sesiones en Kissimmee son en el propio negocio, para que los clientes vean el lugar real, y agregamos unas tomas junto al lago Toho para un look más cálido y abierto.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="servicios">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Servicios en Kissimmee</p><h2>¿Qué necesitas?</h2></div>
+      <div class="steps" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))">
+        <div class="step"><h3><a href="es/fotos-profesionales-orlando/">Fotos profesionales</a></h3><p>Headshots para LinkedIn, realtors, agentes de seguros y profesionales.</p></div>
+        <div class="step"><h3><a href="es/fotografia-de-marca-orlando/">Fotos para tu negocio</a></h3><p>Una sesión de marca personal en tu local, para tu web y tus redes.</p></div>
+        <div class="step"><h3><a href="es/video-para-negocios-orlando/">Video para redes</a></h3><p>Reels y videos de marca en español para tus clientes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Dónde fotografiamos</p><h2>Lugares en Kissimmee.</h2></div>
+      <div class="steps">
+        <div class="step"><h3>Lakefront Park</h3><p>El lago Toho al amanecer o al atardecer, para retratos cálidos y abiertos.</p></div>
+        <div class="step"><h3>Centro histórico en Broadway</h3><p>Fachadas antiguas con carácter, ideales para fotos de negocios locales.</p></div>
+        <div class="step"><h3>Tu negocio</h3><p>Restaurantes, tiendas y oficinas, fotografiados donde tus clientes te conocen.</p></div>
+        <div class="step"><h3>Estudio en Orlando</h3><p>Fondos limpios y luz controlada, a unos minutos de Kissimmee.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Trabajo reciente</p><h2>Profesionales y negocios de la Florida Central.</h2></div>
+      {sheet(kis_frames, ["GLPX STUDIO", "KISSIMMEE", "▸ FLORIDA CENTRAL"], "sheet--3")}
+    </div>
+  </section>
+
+{reviews_es(["grace", "ashana", "charlyn"], "Lo que dicen los clientes.")}
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Preguntas frecuentes</p><h2>Sesiones en Kissimmee.</h2></div>
+      {faq(kis_faq)}
+    </div>
+  </section>
+
+{related("es/fotografo-kissimmee/")}{closer_es("Planeemos tu sesión <em>en Kissimmee.</em>")}'''
+kis_desc = "Fotógrafo en Kissimmee que habla español: fotos profesionales, fotos para tu negocio y video. Sesiones en tu local o junto al lago Toho."
+write_es("es/fotografo-kissimmee/", "Fotógrafo en Kissimmee que habla español · GLPX Studio", kis_desc, kissimmee,
+         service_ld("Fotografía en Kissimmee", kis_desc, "es/fotografo-kissimmee/").replace('"areaServed": "Orlando, FL"', '"areaServed": "Kissimmee, FL"') + faq_ld(kis_faq))
+
 
 # ------------------------------------------------------------------ sitemap
 sm = (ROOT / "sitemap.xml").read_text()
