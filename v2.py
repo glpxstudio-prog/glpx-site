@@ -1,6 +1,6 @@
 """Homepage concept v2 (editorial / brick + black). Writes index-v2.html."""
 import build
-from build import header, FOOTER, BOOK, ROOT
+from build import header, FOOTER, BOOK, ROOT, faq
 
 FONTS = ("https://fonts.googleapis.com/css2?family=Libre+Caslon+Condensed:ital,wght@0,400;0,700;1,400"
          "&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Archivo:wdth,wght@125,700&display=swap")
@@ -38,7 +38,7 @@ body = f'''  <section class="hero hero--photo v2-trio-hero v2-dark-hero">
       <div class="hero-copy">
         <p class="kicker">Branding &amp; headshot photography · Orlando, FL</p>
         <h1 class="tall">Refuse to be <em>(forgettable).</em></h1>
-        <p class="lede">Portraits for founders, realtors, artists and executives who need their photos to do some of the selling. Studio sessions in Orlando, or on location wherever your work happens.</p>
+        <p class="lede">GLPX Studio is an Orlando branding and headshot photographer, run by Gerson Lopez. Portraits for founders, realtors, artists and executives who need their photos to do some of the selling. Studio sessions in Orlando, or on location wherever your work happens.</p>
         <div class="hero-actions">
           <a class="pill pill--act" href="{BOOK}" target="_blank" rel="noopener">Book a free strategy call</a>
           <a class="pill" href="portfolio.html">See the work</a>
@@ -55,7 +55,7 @@ body = f'''  <section class="hero hero--photo v2-trio-hero v2-dark-hero">
   <section class="v2-intro">
     <div class="wrap">
       <div class="v2-collage">
-        <div class="block"><img src="assets/img/br-bw-woman.jpg" alt=""></div>
+        <div class="block"><img src="assets/img/br-bw-woman.jpg" alt="Black and white branding portrait of a woman by GLPX Studio in Orlando"></div>
         <div class="prt"><img src="assets/img/br-bw-man.jpg" alt="Black and white branding portrait of a man in a white shirt"></div>
         <div class="prt"><img src="assets/img/ed-12.jpg" alt="Beauty portrait with pearl hair accessories on pink"></div>
       </div>
@@ -157,9 +157,24 @@ body = f'''  <section class="hero hero--photo v2-trio-hero v2-dark-hero">
       <div class="v2-about-copy">
         <p class="kicker" style="color:#FFF1EA">Behind the camera</p>
         <h2 class="tall">Hi, I'm (Gerson).</h2>
-        <p>More than eight years photographing people, from album covers for Alex Rose and Anuel AA to headshots for realtors on a lunch break. Based in Orlando, shooting across the city in English or Spanish.</p>
+        <p>I'm Gerson Lopez, the photographer behind GLPX Studio. More than eight years photographing people, from album covers for Alex Rose and Anuel AA to headshots for realtors on a lunch break. Based in Orlando, shooting across the city in English or Spanish.</p>
         <div><a class="pill" href="about.html">More about me</a></div>
       </div>
+    </div>
+  </section>
+
+  <section class="v2-sec">
+    <div class="wrap">
+      <h2 class="tall v2-title" style="margin-bottom:.6em">(Common) Questions</h2>
+      <style>.v2-faq .faq p{{color:#E3D7CB}}.v2-faq .faq a{{color:#fff;text-decoration:underline}}</style><div class="v2-faq" style="max-width:860px;margin:0 auto;text-align:left">{faq([
+        ("Who is GLPX Studio?", "GLPX Studio is a branding and headshot photography studio in Orlando, FL, founded by photographer Gerson Lopez. I photograph founders, realtors, artists, executives and teams, in English or Spanish."),
+        ("How much does a photo session cost?", "Every shoot gets a custom quote based on how many people, outfits, locations and edited images you need. Book a free call and I'll send your quote within 24 hours."),
+        ("Where do sessions happen?", "In a rented studio in Orlando or on location: your office, your business or around the city. I also shoot in Winter Park, Lake Nona, Downtown Orlando, Dr. Phillips, Windermere, Kissimmee, Lake Mary, Sanford and the rest of Central Florida. See <a href='areas.html'>areas I serve</a>."),
+        ("Can the session be in Spanish?", "Yes. The planning call, the direction on set and delivery can all be in English or Spanish. <a href='es/'>Ver en español</a>."),
+        ("How long until I get my photos?", "Edited, print ready images arrive in two to three weeks, sized for web and print."),
+        ("Do you photograph teams and events?", "Yes. I shoot <a href='corporate-headshots-orlando.html'>team headshots</a> and <a href='corporate-event-photography-orlando.html'>corporate events</a> like conferences, launches and company parties, with on site headshots if you need them."),
+        ("How do I book?", "Start with a free strategy call. After we plan the shoot, a 50% deposit holds your date."),
+      ])}</div>
     </div>
   </section>
 

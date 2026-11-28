@@ -23,6 +23,22 @@ BUSINESS = {
                    "Thornton Park", "Kissimmee", "Winter Garden", "Altamonte Springs", "Lake Mary", "Sanford", "Oviedo", "Celebration"],
     "knowsLanguage": ["en", "es"],
     "sameAs": ["https://www.instagram.com/glpxstudio/"],
+    "@id": SITE + "#business",
+    "founder": {"@type": "Person", "@id": SITE + "about.html#gerson", "name": "Gerson Lopez",
+                "jobTitle": "Founder and photographer", "url": SITE + "about.html",
+                "knowsLanguage": ["en", "es"], "worksFor": {"@id": SITE + "#business"}},
+    "knowsAbout": ["Branding photography", "Headshot photography", "Corporate headshots", "Editorial photography",
+                   "Album cover photography", "Corporate event photography", "Commercial photography", "Videography"],
+    "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Photography packages (custom quote)", "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Starter Branding",
+         "description": "2-hour branding shoot, 2 outfits, 10 edited images, delivered in 2 weeks."}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Signature Branding",
+         "description": "3-hour branding shoot, 4 outfits, 15 edited images, delivered in 3 weeks."}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Half Day",
+         "description": "Up to 5 hours of shooting with up to 3 set changes."}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Day",
+         "description": "Up to 10 hours, unlimited locations, travel within 1 hour of Orlando."}},
+    ]},
 }
 LD = '<script type="application/ld+json">' + json.dumps(BUSINESS, ensure_ascii=False) + "</script>\n"
 
@@ -70,8 +86,16 @@ def finish(path, url=None):
     name = path.name
     url = url or SITE + ("" if name == "index.html" else name)
     head_add = ""
-    if "application/ld+json" not in html:
+    if "ProfessionalService" not in html:
         head_add += LD
+    if '<div class="faq">' in html and "FAQPage" not in html:
+        qa = re.findall(r"<details><summary>(.*?)</summary><p>(.*?)</p></details>", html, re.S)
+        if qa:
+            clean = lambda t: re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", t)).replace("&amp;", "&").strip()
+            head_add += '<script type="application/ld+json">' + json.dumps({
+                "@context": "https://schema.org", "@type": "FAQPage",
+                "mainEntity": [{"@type": "Question", "name": clean(q), "acceptedAnswer": {"@type": "Answer", "text": clean(a)}}
+                               for q, a in qa]}, ensure_ascii=False) + "</script>\n"
     if 'rel="canonical"' not in html:
         head_add += f'<link rel="canonical" href="{url}">\n'
     if "og:image" not in html:

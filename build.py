@@ -290,7 +290,7 @@ headshots = f'''  <section class="page-hero page-hero--ink">
       <div class="hero-copy">
         <p class="eyebrow">Headshot photography · Orlando, FL</p>
         <h1>Headshots that look like you <em>on a good day.</em></h1>
-        <p class="lede">For actors, lawyers, doctors, realtors, executives and whole teams. I coach you through every frame, so you don't need to know how to pose.</p>
+        <p class="lede">Professional headshots in Orlando, FL for actors, lawyers, doctors, realtors, executives and whole teams. I coach you through every frame, so you don't need to know how to pose.</p>
         <div class="hero-actions">
           <a class="btn btn--red" href="{BOOK}" target="_blank" rel="noopener">Book your headshot</a>
           <a class="btn btn--ghost" href="#gallery">See headshots</a>
@@ -377,6 +377,20 @@ headshots = f'''  <section class="page-hero page-hero--ink">
         <h3>One big light and a lot of talking.</h3>
         <p>The setup stays simple so the time goes to you. Most of the work is getting you out of your stiff camera face and into the one your clients actually know.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="section cream">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Questions</p><h2>Headshot FAQ.</h2></div>
+      {faq([
+        ("How much do headshots cost at GLPX Studio?", "Headshots are quoted per session, based on how many people and looks you need. Tell me on a quick call and I'll send a quote within 24 hours."),
+        ("I don't know how to pose. Is that a problem?", "Not at all. I coach you through every frame, posture and expression, so you never have to guess."),
+        ("What should I wear for a headshot?", "Solid colors, a jacket or blazer that fits, and a second top for variety. Skip logos and loud prints. Hair and makeup is available as an add-on."),
+        ("Can you photograph my whole team?", "Yes. Teams and offices are welcome, on site or in the studio. See <a href='corporate-headshots-orlando.html'>corporate team headshots</a>."),
+        ("Do you shoot actor headshots?", "Yes. We can shoot a commercial look and a theatrical look in the same session, with natural retouching that works for casting sites."),
+        ("Can the session be in Spanish?", "Yes. Sessions run in English or Spanish."),
+      ])}
     </div>
   </section>
 
